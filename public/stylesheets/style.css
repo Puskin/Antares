@@ -1,0 +1,46 @@
+/* `HTML tags redefine
+----------------------------------------------------------------------------------------------------*/
+
+body { 
+	background: #fff;
+	font: 12px "Lucida Grande", Sans-Serif; 
+	color: #000;
+	line-height: 18px; 
+}
+
+.block { width: 960px; display: block; float: left; }
+.fullBlock { width: 100%; display: block; }
+
+/* `Site structure
+----------------------------------------------------------------------------------------------------*/
+
+.container { width: 960px; margin: auto; }
+#header { height: 40px; background: #8d8d8d; }
+
+/* `Header elements
+----------------------------------------------------------------------------------------------------*/
+
+#header #logo { height: 40px; line-height: 40px; padding: 0 15px 0 15px; }
+#header .menu { float: right;  }
+#header .menu li { 
+	display: inline-block; 
+	float: left; 
+	margin: 0 15px 0 0;
+	height: 40px;
+	line-height: 40px; 
+}
+
+/* `Main elements
+----------------------------------------------------------------------------------------------------*/
+
+
+/* `Subpage elements
+----------------------------------------------------------------------------------------------------*/
+
+
+
+/* `IE transparency fix
+----------------------------------------------------------------------------------------------------*/
+
+img, #header, #footer, #menu, #picture img { behavior: url(js/iepngfix.htc); }
+
