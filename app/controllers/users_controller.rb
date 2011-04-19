@@ -1,11 +1,23 @@
 class UsersController < ApplicationController
   def new
     @title = "Zarejestruj sie"
+    @user = User.new
   end
   
   def show
     @user = User.find(params[:id])
     @title = "#{@user.name} #{@user.surname}"
+  end
+  
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      redirect_to @user
+      flash[:success] = "Zarejestrowany! Witaj w Jetu #{@user.name}!"
+    else
+      @title = "Zarejestruj sie"
+      render 'new'
+    end
   end
 
 end

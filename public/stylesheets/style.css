@@ -16,6 +16,7 @@ body {
 
 .container { width: 960px; margin: auto; }
 #header { height: 40px; background: #8d8d8d; }
+#main { background: #d3c1a9; padding: 25px; width: 910px; }
 
 /* `Header elements
 ----------------------------------------------------------------------------------------------------*/
