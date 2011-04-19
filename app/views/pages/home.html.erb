@@ -10,7 +10,20 @@
 				  scrollwheel: false,
 	              zoom: 10,
 	              center: wspolrzedne,
-	              mapTypeId: google.maps.MapTypeId.ROADMAP
+			
+				    mapTypeId: google.maps.MapTypeId.HYBRID,
+				    disableDefaultUI: true,
+				    mapTypeControl: true, // kontrolka trybu mapy
+				    navigationControl: true, // kontrolka nawigacji
+
+				    navigationControlOptions:
+				    {
+				        position: google.maps.ControlPosition.LEFT // kontrolka nawigacji w prawym, górnym rogu
+				    },
+				    mapTypeControlOptions:
+				    {
+				        position: google.maps.ControlPosition.RIGHT // kontrolka trybu mapy na górze
+				    }
 	            };
 	            var mapa = new google.maps.Map(document.getElementById("map"), opcjeMapy); 
 	        }   
