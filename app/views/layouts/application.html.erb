@@ -7,18 +7,18 @@
 	</head>
 	
 	<body>
-		<div class="container">
-      	
-			<%= render 'layouts/header' %>
-		
-			<div id="main" class="block">
-				<% flash.each do |key, value| %>
-				  <div class="flash <%= key %>"><%= value %></div>
+		<div class="<%= container_size %>">
+			
+			<%= show_header %>
+			
+			<div id="content" class="block">
+				<% unless signed_in? %>
+					<% flash.each do |key, value| %>
+					  <div class="flash <%= key %>"><%= value %></div>
+					<% end %>
 				<% end %>
+				
 				<%= yield %>
-			</div>
-			<div id="debug" class="block">
-			<%= debug(params) if Rails.env.development? %>
 			</div>
 		</div>
   	</body>

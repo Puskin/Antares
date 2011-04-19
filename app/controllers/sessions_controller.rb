@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       render 'new'
     else
       sign_in user
-      redirect_to user
+      flash[:success] = "Zalogowany jako #{user.name} #{user.surname}"
+      redirect_to root_path
     end
   end
   

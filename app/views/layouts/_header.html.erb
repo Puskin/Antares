@@ -5,8 +5,5 @@
 		<li><%= link_to "Wkręć się", about_path %></li>
 		<li><%= link_to "Zaloguj się", login_path %></li>
 		<li><%= link_to "Załóż konto", signup_path %></li>
-		<% if signed_in? %>
-		<li><%= link_to "Wyloguj się", logout_path, :method => :delete %></li>
-		<% end %>
 	</ul>
 </div>
