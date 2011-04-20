@@ -1,5 +1,6 @@
 <div id="header" class="block">
 	<%= link_to "Jetu.pl", root_path, :id => "logo" %>
+	Zalogowany jako <%= @user.name %> <%= @user.surname %>
 	<ul class="menu">
 		<li><%= link_to "Mapa", root_path %>
 		<li><%= link_to "Miejsca", "#" %>
@@ -12,5 +13,5 @@
 	<% flash.each do |key, value| %>
 	  <div class="flash <%= key %>"><%= value %></div>
 	<% end %>
-	Szukajka do miejsc, ludzi i innych rzeczy.
+	Szukajka do miejsc, ludzi i innych rzeczy. 
 </div>

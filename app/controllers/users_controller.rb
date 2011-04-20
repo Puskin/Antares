@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      redirect_to @user
+      redirect_to roo_path
       flash[:success] = "Zarejestrowany! Witaj w Jetu #{@user.name}!"
     else
       @title = "Zarejestruj sie"
