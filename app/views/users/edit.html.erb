@@ -1,12 +1,39 @@
 <div id="main" class="container">
 <h1>Aktualizuj</h1>
 
+	<div class="field">
+		<br><br>
+		<h1>Miejsce domowe</h1>
+
+		<div class="field">
+		<form id="geo" action="#" onsubmit="skoczDoAdresu(document.getElementById('szukanyAdres').value); return false;">
+		    Wpisz tutaj swój adres, by odnaleźć go na mapie i dodać do bazy.
+		    <br />
+		    <input type="text" style="width: 280px; border: 1px solid black; color: #898989; font-size: 1.1em; padding: 3px;" id="szukanyAdres" />
+		    <input type="submit" value="Pokaż na mapie" />
+		</form><br><Br>
+		</div>
+	</div>
+
 <%= form_for(@user) do |f| %>
   
 	<%= render 'fields', :f => f %>
+			
+		<%= render 'shared/map_add_marker' %><br>
+		
+		<div id="map" style="width: 600px; height: 400px"></div>
+		<script type="text/javascript">
+		mapaStart();
+		</script>
+		
+		<%= f.label :home_latitude, "Szer. geograficzna"%>
+		<%= f.text_field :home_latitude, :readonly => true %>
+		<%= f.label :home_longitude, "Dł. geograficzna"%>
+		<%= f.text_field :home_longitude, :readonly => true %>	<br><br>	
+
 
   <div class="actions">
-    <%= f.submit "Aktualizuj" %>
+    <%= f.submit "Aktualizuj" %><br><br>
   </div>
 <% end %>
 </div>

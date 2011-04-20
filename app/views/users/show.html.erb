@@ -1,5 +1,13 @@
 <div id="main" class="container">
 
-Nazywa się: <%= @user.name %> <%= @user.surname %>, a adres email to: <%= @user.email %>
+Nazywa się: <%= @user.name %> <%= @user.surname %>, a adres email to: <%= @user.email %><br>
+<h1>Jest tutaj</h1>
+<%= render 'shared/map_show_marker' %>
+
+<div id="map" style="width: 960px; height: 700px;"></div>
+
+<script type="text/javascript">
+mapaStart();
+</script>
 
 </div>

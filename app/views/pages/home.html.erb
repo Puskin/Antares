@@ -3,31 +3,40 @@
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.2&amp;sensor=false&amp;region=pl"></script>                                          
 
 	<script type="text/javascript">   
-	        function mapaStart()   
-	        {   
-	            var wspolrzedne = new google.maps.LatLng(53.41935400090768,14.58160400390625);
-	            var opcjeMapy = {
-				  scrollwheel: false,
-	              zoom: 10,
-	              center: wspolrzedne,
-			
-				    mapTypeId: google.maps.MapTypeId.HYBRID,
-				    disableDefaultUI: true,
-				    mapTypeControl: true, // kontrolka trybu mapy
-				    navigationControl: true, // kontrolka nawigacji
+			        <!-- 
+			            var mapa; // obiekt globalny
+			            function mapaStart()  
+			            {  
+			                // tworzymy mapę satelitarną i centrujemy w okolicy Szczecina na poziomie zoom = 10
+			                var wspolrzedne = new google.maps.LatLng(<%= current_user.home_latitude %>,<%= current_user.home_longitude %>);
+			                var opcjeMapy = {
+			                    zoom: 19,
+			                    center: wspolrzedne,
+			                    mapTypeId: google.maps.MapTypeId.SATELLITE,
+								mapTypeControl: true,
+								navigationControlOptions: {
+								        position: google.maps.ControlPosition.LEFT_CENTER
+								    },
+									mapTypeControlOptions: {
+									        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+									        position: google.maps.ControlPosition.RIGHT_BOTTOM
+									    },
+							
+			                };
+			                mapa = new google.maps.Map(document.getElementById("map"), opcjeMapy); 
 
-				    navigationControlOptions:
-				    {
-				        position: google.maps.ControlPosition.LEFT_CENTER // kontrolka nawigacji w prawym, górnym rogu
-				    },
-				    mapTypeControlOptions:
-				    {
-				        position: google.maps.ControlPosition.RIGHT_BOTTOM // kontrolka trybu mapy na górze
-				    }
-	            };
-	            var mapa = new google.maps.Map(document.getElementById("map"), opcjeMapy); 
-	        }   
-	        </script>
+			                // stworzenie markera
+			                var punkt  = new google.maps.LatLng(<%= current_user.home_latitude %>,<%= current_user.home_longitude %>);
+			                var opcjeMarkera =
+			                {
+			                    position: punkt,
+			                    map: mapa,
+			                    title: "Pierwszy marker!"
+			                }
+			                var marker = new google.maps.Marker(opcjeMarkera);
+			            }  
+			        -->
+			        </script>
 	
 	<div id="map"></div>
 	

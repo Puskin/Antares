@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def home    
     if signed_in?
       @title = "Ostatnie zmiany w Twoim otoczeniu"
     else

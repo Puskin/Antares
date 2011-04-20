@@ -1,22 +1,27 @@
 # == Schema Information
-# Schema version: 20110418213208
+# Schema version: 20110420205315
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  surname    :string(255)
-#  email      :string(255)
-#  gender     :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  surname            :string(255)
+#  email              :string(255)
+#  gender             :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean
+#  home_latitude      :string(255)
+#  home_longitude     :string(255)
 #
 
 require 'digest'
 
 class User < ActiveRecord::Base
   attr_accessor   :password
-  attr_accessible :name, :surname, :email, :gender, :password, :password_confirmation
+  attr_accessible :name, :surname, :email, :gender, :password, :password_confirmation, :home_latitude, :home_longitude
   
   before_save :encrypt_password
   
