@@ -1,0 +1,5 @@
+<%= link_to "#{user.name} #{user.surname}", user %>
+<% if current_user.admin? %>
+ | <%= link_to "Usuń", user, :method => :delete, :confirm => "Na pewno?",
+							 :title => "Usuń #{user.name} #{user.surname}"%>
+<% end %>

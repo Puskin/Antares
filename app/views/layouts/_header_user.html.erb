@@ -1,11 +1,11 @@
 <div id="header" class="block">
 	<%= link_to "Jetu.pl", root_path, :id => "logo" %>
-	Zalogowany jako <%= @user.name %> <%= @user.surname %>
+	Zalogowany jako <%= "#{current_user.name}#{current_user.surname}, #{current_user.gender}" %>
 	<ul class="menu">
 		<li><%= link_to "Mapa", root_path %>
 		<li><%= link_to "Miejsca", "#" %>
-		<li><%= link_to "Ludzie", "#" %>
-		<li><%= link_to "Ustawienia", "#" %>
+		<li><%= link_to "Ludzie", users_path %>
+		<li><%= link_to "Ustawienia", edit_user_path(current_user) %>
 		<li><%= link_to "Wyloguj się", logout_path, :method => :delete %></li>
 	</ul>
 </div>
