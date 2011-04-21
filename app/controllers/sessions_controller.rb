@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   def new
     @title = "Zaloguj sie"
+    unless current_user.nil? 
+      redirect_to root_path
+    end
   end
   
   def create

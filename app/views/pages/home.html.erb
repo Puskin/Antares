@@ -1,6 +1,8 @@
 <% if signed_in? %>
 <div id="main" class="container">	
-<h1>Gdzie jesteś?</h1>
+<h1>Gdzie jesteś?</h1>       
+  
+<%= render 'shared/map_add'%>
 <%= render 'shared/location_form' %>
 <%= render 'shared/feed' %>
 

@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   before_filter :admin_user,   :only => :destroy
   
   def new
+    unless current_user.nil? 
+      redirect_to root_path
+    end
     @title = "Zarejestruj sie"
     @user = User.new
   end
@@ -16,6 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @locations = @user.locations.find(:all)
+    @latest_location = @user.locations.find(:first)
     @title = "#{@user.name} #{@user.surname}"
   end
   

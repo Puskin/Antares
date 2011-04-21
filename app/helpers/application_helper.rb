@@ -17,6 +17,12 @@ module ApplicationHelper
     end
   end
   
+  def body_height 
+    if @page_height == "full"
+      "class='fullHeight'"
+    end
+  end
+  
   def show_header
     if signed_in?
 		  render 'layouts/header_user'

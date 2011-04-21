@@ -2,12 +2,13 @@
 ----------------------------------------------------------------------------------------------------*/
 html { height: 100%; }
 body { 
-	height: 100%;
 	background: #fff;
 	font: 12px "Lucida Grande", Sans-Serif; 
 	color: #000;
 	line-height: 18px; 
 }
+
+body.fullHeight { height: 100%; }
 
 .block { width: 100%; }
 

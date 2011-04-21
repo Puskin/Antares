@@ -2,6 +2,14 @@
 
 <%= @user.name %> <%= @user.surname %> ma <%= @user.locations.count %> dodanych lokacji.<br><br> 
 
+<h1>Ostatnio zalogowany tutaj:</h1>
+
+<% if @user.locations.empty? %>
+	Żadnych dodanych lokacji.
+<% else %>
+	<%= render 'shared/map_show' %>
+<% end %>
+
 <% unless @user.locations.empty? %>
 	<ul>
 		<%= render @locations %>
