@@ -1,0 +1,9 @@
+<li>
+	Kto dodał: <%= feed_item.user.name %><br />
+	Tytuł miejsca: <%= feed_item.title %><br />
+	Opis czynności: <%= feed_item.description %><br />
+	Szerokość geograficzna: <%= feed_item.latitude %><br />
+	Długość geograficzna: <%= feed_item.longitude %><br />
+	Dodano: <%= time_ago_in_words(feed_item.created_at) %> ago<br>
+	--
+</li>

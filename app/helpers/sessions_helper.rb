@@ -25,6 +25,10 @@ module SessionsHelper
     user == current_user
   end
   
+  def authenticate
+    deny_access unless signed_in?
+  end
+  
   def deny_access
       redirect_to login_path, :notice => "Zaloguj sie by uzyskac dostep do tej strony"
   end

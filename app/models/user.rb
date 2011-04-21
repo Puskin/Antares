@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :name, :surname, :email, :gender, :password, :password_confirmation, :home_latitude, :home_longitude
   
+  has_many :locations, :dependent => :destroy
+  
   before_save :encrypt_password
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -51,6 +53,10 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt)
       user = find_by_id(id)
       (user && user.salt == cookie_salt) ? user : nil
+  end
+  
+  def feed
+    Location.where("user_id = ?", id)
   end
 
   private
