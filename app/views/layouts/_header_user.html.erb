@@ -1,6 +1,6 @@
-<div id="header" class="block">
+<div id="header">
 	<%= link_to "Jetu.pl", root_path, :id => "logo" %>
-	Zalogowany jako <%= "#{current_user.name}#{current_user.surname}, #{current_user.gender}" %>
+	Hej <%= "#{current_user.name}!" %>
 	<ul class="menu">
 		<li><%= link_to "Mapa", root_path %>
 		<li><%= link_to "Miejsca", "#" %>
@@ -10,7 +10,8 @@
 	</ul>
 </div>   
 
-
-	<div id="subHeader" class="block">
+    <% if @page_id == "map" %>
+	<div id="subHeader">
 		Szukajka do miejsc, ludzi i innych rzeczy. 
-	</div>
+	</div>                   
+	<% end %>

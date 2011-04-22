@@ -10,17 +10,17 @@ module ApplicationHelper
   end
   
   def container_size #for full width container after login 
-    if signed_in? 
+    if @page_id == "map" 
       "containerFull"
     else
       "container"
     end
-  end
+  end        
   
-  def body_height 
-    if @page_height == "full"
-      "class='fullHeight'"
-    end
+  def body_class
+   if signed_in? && @page_id == nil
+     "class='subpage'"
+   end       
   end
   
   def show_header

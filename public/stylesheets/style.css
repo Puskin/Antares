@@ -1,14 +1,11 @@
 /* `HTML tags redefine
 ----------------------------------------------------------------------------------------------------*/
-html { height: 100%; }
 body { 
 	background: url(../images/header.jpg) top repeat-x #fff8eb;
 	font: 12px "Lucida Grande", Sans-Serif; 
 	color: #6e5830;
 	line-height: 20px; 
 }
-body.fullHeight { height: 100%; }
-.block { width: 100%; }
 
 /* Overall elements definition      
 ----------------------------------------------------------------------------------------------------*/
@@ -63,32 +60,33 @@ input[type="radio"] { width: auto; }
 
 /* unlogged user pages */
 .container { width: 650px; margin: auto; }
-#header { padding: 7px 0 0 0; height: 54px; line-height: 54px; }
+#header { padding: 7px 0 0 0; height: 54px; line-height: 54px; margin-bottom: 20px; }
 .container #content {  
-	margin-top: 20px;
-	display: block;
 	background: #f0e1c7;
 	border: 1px solid #c4b499;  
 	padding: 20px;
 }
 
-/* logged in user pages */
+/* logged in user map-page */
 .containerFull { width: 100%; height: 100%; position: relative; }
 .containerFull #header {  
-		position: absolute; top: 0;  
 		z-index: 100;
-		height: 54px; line-height: 49px; 
+		height: 53px; line-height: 49px;    
+		margin: 0;      
+		padding: 7px 10px 0 10px;
 }
 .containerFull #subHeader { 
- 	position: absolute; 
 	top: 60px; z-index: 100;
 	background: url(../images/subHeader.jpg) repeat-x scroll 0 0 transparent;
 	color: #BDA17B;
 	height: 52px;
-	line-height: 52px;
+	line-height: 52px; 
+	padding: 0 10px 0 10px;
 }
-.containerFull #content { height: 100%; }
-.containerFull #main { padding-top: 130px; width: 960px; margin: auto; } 
+.containerFull #content { height: 100%; position: fixed; top: 113px; width: 100%; }  
+
+/* all logged in pages without map */
+body.subpage .container { width: 760px }       
 
 /* `Header elements
 ----------------------------------------------------------------------------------------------------*/

@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home    
     if signed_in?
       @title = "Ostatnie zmiany w Twoim otoczeniu"
-      @page_height = "full"
+      @page_id = "map"
       @location = Location.new
       @feed_items = current_user.feed
     else
