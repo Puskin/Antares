@@ -30,7 +30,7 @@ h4 { font-size: 16px; }
 
 .info { background: #fffbc1; color: #ce8c1a; border-color: #ce8c1a; }
 .error { background: #fbd6d6; color: #d05f5f; border-color: #d05f5f; }
-.succes { background: #defce0; color: #52875d; border-color: #52875d; }  
+.success { background: #defce0; color: #52875d; border-color: #52875d; }  
 
 input { 
 	background: url(../images/inputBackground.jpg) repeat-x top #fff7ea;
@@ -54,6 +54,8 @@ input[type="radio"] { width: auto; }
 	border: 1px solid #c46f08;
 	background: url(../images/buttonOrange.jpg) top repeat-x #ff8b02;	
 }
+           
+.clear { clear: both; }
 
 /* `Site structure
 ----------------------------------------------------------------------------------------------------*/
@@ -64,11 +66,12 @@ input[type="radio"] { width: auto; }
 .container #content {  
 	background: #f0e1c7;
 	border: 1px solid #c4b499;  
-	padding: 20px;
+	padding: 20px;     
+	
 }
 
 /* logged in user map-page */
-.containerFull { width: 100%; height: 100%; position: relative; }
+.containerFull { width: 100%; height: 100%; position: relative; min-width: 960px; }
 .containerFull #header {  
 		z-index: 100;
 		height: 53px; line-height: 49px;    
@@ -86,7 +89,7 @@ input[type="radio"] { width: auto; }
 .containerFull #content { height: 100%; position: fixed; top: 113px; width: 100%; }  
 
 /* all logged in pages without map */
-body.subpage .container { width: 760px }       
+body.subpage .container { width: 760px }  
 
 /* `Header elements
 ----------------------------------------------------------------------------------------------------*/
@@ -134,10 +137,9 @@ body.subpage .container { width: 760px }
 
 /* `Content elements
 ----------------------------------------------------------------------------------------------------*/ 
-
-.field { margin-bottom: 10px; }
-
-/* #content #map { height: 100%; width: 100%; } */
+   
+.field { margin-bottom: 10px; }       
+.containerFull #content #map { height: 100%; width: 100%; }
 
 /* `Subpage elements
 ----------------------------------------------------------------------------------------------------*/
