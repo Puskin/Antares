@@ -4,9 +4,6 @@ class UsersController < ApplicationController
   before_filter :admin_user,   :only => :destroy
   
   def new
-    unless current_user.nil? 
-      redirect_to root_path
-    end
     @title = "Zarejestruj sie"
     @user = User.new
   end
