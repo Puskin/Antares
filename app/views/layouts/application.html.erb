@@ -12,12 +12,10 @@
 			
 			<%= show_header %>
 			
-			<div id="content" class="block">
-				<% unless signed_in? %>
-					<% flash.each do |key, value| %>
-					  <div class="flash <%= key %>"><%= value %></div>
-					<% end %>
-				<% end %>
+			<div id="content">
+				<% flash.each do |key, value| %>
+				  <div class="flash <%= key %>"><%= value %></div>
+				<% end %>   
 				
 				<%= yield %>
 			</div>

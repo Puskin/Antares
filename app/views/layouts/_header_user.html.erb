@@ -8,10 +8,9 @@
 		<li><%= link_to "Ustawienia", edit_user_path(current_user) %>
 		<li><%= link_to "Wyloguj się", logout_path, :method => :delete %></li>
 	</ul>
-</div>
-<div id="subHeader" class="block">
-	<% flash.each do |key, value| %>
-	  <div class="flash <%= key %>"><%= value %></div>
-	<% end %>
-	Szukajka do miejsc, ludzi i innych rzeczy. 
-</div>
+</div>   
+
+
+	<div id="subHeader" class="block">
+		Szukajka do miejsc, ludzi i innych rzeczy. 
+	</div>

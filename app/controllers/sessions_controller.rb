@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
       @title = "Zaloguj sie"
       render 'new'
     else
-      sign_in user
+      sign_in user            
+      flash[:success] = "Zalogowano, witaj w serwisie #{current_user.name}."
       redirect_to root_path
     end
   end

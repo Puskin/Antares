@@ -1,15 +1,12 @@
 <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><%= f.label :name, "Imię" %>
   </div>
   <div class="field">
-    <%= f.label :surname %><br />
-    <%= f.text_field :surname %>
+    <%= f.text_field :surname %><%= f.label :surname, "Nazwisko" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email %><%= f.label :email, "Adres e-mail" %>
   </div>
   <div class="field">  
  	<%= f.label :gender, "Płeć" %><br /> 
@@ -17,12 +14,11 @@
 	<%= f.label(:gender, "Kobieta") %>
 	<%= f.radio_button(:gender, "male") %>
 	<%= f.label(:gender, "Mężczyzna") %>
-</div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation, "Confirmation" %><br />
+    <%= f.password_field :password %><%= f.label :password, "Hasło" %>
+  </div>
+  <div class="field">
     <%= f.password_field :password_confirmation %>
+	<%= f.label :password_confirmation, "Potwierdź hasło" %>
   </div>
