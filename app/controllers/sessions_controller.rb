@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-      sign_out
+      sign_out   
+      flash[:notice] = "Wylogowano z Jetu"
       redirect_to root_path
   end
 

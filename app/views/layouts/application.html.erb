@@ -12,12 +12,12 @@
 		<div class="<%= container_size %>">
 			
 			<%= show_header %>
+			                  
+			<% flash.each do |key, value| %>
+			  <div class="flash <%= key %>"><%= value %></div>
+			<% end %>
 			
-			<div id="content">
-				<% flash.each do |key, value| %>
-				  <div class="flash <%= key %>"><%= value %></div>
-				<% end %>   
-				
+			<div id="content">				
 				<%= yield %>
 			</div>
 		</div>

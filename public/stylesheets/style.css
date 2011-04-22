@@ -25,10 +25,12 @@ h4 { font-size: 16px; }
 	margin-bottom: 20px;
 	-webkit-box-shadow: inset 0px 1px 0px #fff;
 	-moz-box-shadow: inset 0px 1px 0px #fff;
-	text-shadow: 1px 1px 1px #fff;
-}
+	text-shadow: 1px 1px 1px #fff;   
+	z-index: 199;
+}     
+.containerFull .flash { margin: 20px; position: relative; }
 
-.info { background: #fffbc1; color: #ce8c1a; border-color: #ce8c1a; }
+.notice { background: #fffbc1; color: #ce8c1a; border-color: #ce8c1a; }
 .error { background: #fbd6d6; color: #d05f5f; border-color: #d05f5f; }
 .success { background: #defce0; color: #52875d; border-color: #52875d; }  
 
@@ -139,7 +141,7 @@ body.subpage .container { width: 760px }
 ----------------------------------------------------------------------------------------------------*/ 
    
 .field { margin-bottom: 10px; }       
-.containerFull #content #map { height: 100%; width: 100%; }
+.containerFull #content #map { height: 500px; width: 500px; }
 
 /* `Subpage elements
 ----------------------------------------------------------------------------------------------------*/
