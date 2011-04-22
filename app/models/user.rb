@@ -32,7 +32,8 @@ class User < ActiveRecord::Base
   validates :name,      :presence     => true,
                         :length       => { :within => 3..50 }
   validates :surname,   :presence     => true,
-                        :length       => { :within => 3..50 }
+                        :length       => { :within => 3..50 }                    
+  validates :gender,    :presence     => true
   validates :email,     :presence     => true,
                         :format       => { :with => email_regex },
                         :uniqueness   => { :case_sensitive => false }
