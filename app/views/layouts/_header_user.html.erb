@@ -1,6 +1,9 @@
 <div id="header">
 	<%= link_to "Jetu.pl", root_path, :id => "logo" %>
-	Hej <%= "#{current_user.name}!" %>
+	<div class="userInfo">
+		<%= gravatar_for current_user, :size => 42 %>
+		Hej <%= "#{current_user.name}!" %>
+	</div>    
 	<ul class="menu">
 		<li><%= link_to "Mapa", root_path %>
 		<li><%= link_to "Miejsca", "#" %>

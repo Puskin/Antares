@@ -96,7 +96,11 @@ body.subpage .container { width: 760px }
 /* `Header elements
 ----------------------------------------------------------------------------------------------------*/
 
-#header #logo { height: 40px; line-height: 40px; padding: 0 15px 0 15px; }
+#header #logo { height: 40px; line-height: 40px; padding: 0 15px 0 15px; }       
+
+#header .userInfo { float: left; height: 46px; line-height: 46px; }       
+#header .userInfo .gravatar { float: left; border: 2px solid #fff; margin: 0 10px 0 0; }
+
 #header .menu { float: right; margin-top: 4px;  }
 #header .menu li { 
 	display: inline-block; 

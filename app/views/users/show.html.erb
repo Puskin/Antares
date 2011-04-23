@@ -1,5 +1,6 @@
 <div id="main">
-
+  
+<%= gravatar_for @user, :size => 100 %><br />
 <%= @user.name %> <%= @user.surname %> ma <%= @user.locations.count %> dodanych lokacji.<br><br> 
 
 <h1>Ostatnio zalogowany tutaj:</h1>
