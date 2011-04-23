@@ -6,25 +6,18 @@
 		            function mapaStart()  
 		            {  
 		                // tworzymy mapę satelitarną i centrujemy w okolicy Szczecina na poziomie zoom = 10
-		                var wspolrzedne = new google.maps.LatLng(<%= @latest_location.latitude %>,<%= @latest_location.longitude %>);
+		                var wspolrzedne = new google.maps.LatLng(<%= @location.latitude %>,<%= @location.longitude %>);
 		                var opcjeMapy = {
 		                    zoom: 19,
 		                    center: wspolrzedne,
 		                    mapTypeId: google.maps.MapTypeId.SATELLITE,
 							mapTypeControl: true,
-							navigationControlOptions: {
-							        position: google.maps.ControlPosition.LEFT_CENTER
-							    },
-								mapTypeControlOptions: {
-								        style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-								        position: google.maps.ControlPosition.RIGHT_BOTTOM
-								    },
 						
 		                };
 		                mapa = new google.maps.Map(document.getElementById("map"), opcjeMapy); 
 
 		                // stworzenie markera
-		                var punkt  = new google.maps.LatLng(<%= @latest_location.latitude %>,<%= @latest_location.longitude %>);
+		                var punkt  = new google.maps.LatLng(<%= @location.latitude %>,<%= @location.longitude %>);
 		                var opcjeMarkera =
 		                {
 		                    position: punkt,
@@ -37,7 +30,7 @@
 		        </script>
 		
 		
-				<div id="map" style="width: 500px; height: 300px;"></div>
+				<div id="map"></div>
 				<script type="text/javascript">
 				mapaStart();
 				</script>
