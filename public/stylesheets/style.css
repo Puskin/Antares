@@ -47,15 +47,17 @@ input {
 	margin-right: 10px;
 }    
 
-input[type="radio"] { width: auto; }                    
+input[type="radio"] { width: auto; }             
 
-.actions input {
+.actions input, input.button {
 	width: auto!important;
 	text-shadow: 1px 1px 1px #fdebcf;
 	color: #a74002;
 	border: 1px solid #c46f08;
 	background: url(../images/buttonOrange.jpg) top repeat-x #ff8b02;	
-}
+}  
+
+.plain { border: 0; background: none; width: auto; padding: 0; margin: 0; }
            
 .clear { clear: both; }
 
@@ -145,7 +147,9 @@ body.subpage .container { width: 760px }
 ----------------------------------------------------------------------------------------------------*/ 
    
 .field { margin-bottom: 10px; }       
-.containerFull #content #map { height: 200px; width: 100%; }
+.containerFull #content #map { height: 200px; width: 100%; }   
+#main ul { margin-bottom: 25px; } /*temp stuff*/  
+#main ul li form { display: inline-block; }
 
 /* `Subpage elements
 ----------------------------------------------------------------------------------------------------*/

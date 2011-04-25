@@ -1,5 +1,6 @@
 <%= gravatar_for user, :size => 30 %>
 <%= link_to "#{user.name} #{user.surname}", user %>
+<%= link_to "DO ZNAJOMYCH", user_connections_path(user), :method => :post %>
 <% if current_user.admin? %>
  | <%= link_to "Usuń", user, :method => :delete, :confirm => "Na pewno?",
 							 :title => "Usuń #{user.name} #{user.surname}"%>

@@ -1,0 +1,15 @@
+<h1>Wysłane przez Ciebie, oczekują na odpowiedź:</h1>
+<ul>
+	<% @pending_contacts.each do |contact| %>
+	    <% conn = Connection.conn(current_user, contact) %>
+		<li>
+			<%= gravatar_for contact, :size => 30 %>
+			<%= contact.name %> 
+			<%= contact.surname %> 
+			
+			<% form_for(conn) do |f| %>
+				<%= f.submit "Cofnij", :class => "button" %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>

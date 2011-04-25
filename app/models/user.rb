@@ -23,7 +23,24 @@ class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :name, :surname, :email, :gender, :password, :password_confirmation, :home_latitude, :home_longitude
   
-  has_many :locations, :dependent => :destroy
+  ACCEPTED =  [%(status = ?), Connection::ACCEPTED]
+  REQUESTED = [%(status = ?), Connection::REQUESTED]
+  PENDING =   [%(status = ?), Connection::PENDING] 
+  
+
+  has_many :contacts, :through => :connections,
+                      :conditions => ACCEPTED,
+                      :order => 'users.created_at DESC'
+  has_many :connections, :dependent => :destroy
+  has_many :locations, :dependent => :destroy       
+  has_many :requested_contacts, :through => :connections, 
+                                :source => :contact,  
+                                :conditions => REQUESTED,
+                                :dependent => :destroy  
+  has_many :pending_contacts,   :through => :connections,
+                                :source => :contact,
+                                :conditions => PENDING,
+                                :dependent => :destroy
   
   before_save :encrypt_password
   

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110421160303) do
+ActiveRecord::Schema.define(:version => 20110424145324) do
+
+  create_table "connections", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.integer  "status"
+    t.datetime "accepted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "connections", ["user_id", "contact_id"], :name => "index_connections_on_user_id_and_contact_id"
 
   create_table "locations", :force => true do |t|
     t.string   "title"

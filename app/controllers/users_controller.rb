@@ -8,7 +8,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-  def index
+  def index                                              
+    @contacts = current_user.contacts
+    @pending_contacts = current_user.pending_contacts
+    @requested_contacts = current_user.requested_contacts
     @users = User.all
     @title = "Wszyscy uzytkownicy"
   end
