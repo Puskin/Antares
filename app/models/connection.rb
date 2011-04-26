@@ -76,6 +76,14 @@ class Connection < ActiveRecord::Base
     
     def conn(user, contact)
       find_by_user_id_and_contact_id(user, contact)
+    end    
+    
+    def accepted?(user, contact)
+      conn(user, contact).status == ACCEPTED
+    end
+
+    def connected?(user, contact)
+      exist?(user, contact) and accepted?(user, contact)
     end
     
   end  

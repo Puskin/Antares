@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index, :show, :edit, :update, :destroy]
-  before_filter :correct_user, :only => [:edit, :update]
-  before_filter :admin_user,   :only => :destroy
+  before_filter :authenticate,      :only => [:index, :show, :edit, :update, :destroy]
+  before_filter :correct_user,      :only => [:edit, :update]
+  before_filter :admin_user,        :only => :destroy   
+  before_filter :connection_exists, :only => :show
   
   def new
     @title = "Zarejestruj sie"
@@ -57,7 +58,17 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
-    private
+    private     
+    
+      def connection_exists
+        @user = current_user
+        @contact = User.find(params[:id])
+        @connection = Connection.connected?(@user, @contact)
+        unless @connection == true
+          flash[:error] = "Nie jestescie znajomymi"
+          redirect_to users_path
+        end            
+      end
         
       def correct_user
         @user = User.find(params[:id])
