@@ -64,7 +64,7 @@ class UsersController < ApplicationController
         @user = current_user
         @contact = User.find(params[:id])
         @connection = Connection.connected?(@user, @contact)
-        unless @connection == true
+        unless @connection == true or current_user?(@contact)
           flash[:error] = "Nie jestescie znajomymi"
           redirect_to users_path
         end            

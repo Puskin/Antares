@@ -6,9 +6,7 @@ Jetu::Application.routes.draw do
   resources :users do
     resources :connections
   end
-  
-
-   
+     
   root :to => 'pages#home' 
 
   match '/signup',:to => 'users#new'
