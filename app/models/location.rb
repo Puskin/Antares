@@ -26,4 +26,13 @@ class Location < ActiveRecord::Base
   validates :longitude,     :presence => true
   
   default_scope :order => 'locations.created_at DESC'
+      
+  class << self
+  
+    def recent(user)
+      user.locations.find(:first)    
+    end      
+  
+  end     
+  
 end
