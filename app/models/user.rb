@@ -73,8 +73,10 @@ class User < ActiveRecord::Base
       (user && user.salt == cookie_salt) ? user : nil
   end
   
-  def feed
-    Location.where("user_id = ?", id)
+  def feed  
+    contacts_ids = self.contacts.map(&:id).join(", ")
+    contacts = self.contacts.count
+    Location.where("user_id IN (#{contacts_ids})").limit(contacts)
   end
 
   private

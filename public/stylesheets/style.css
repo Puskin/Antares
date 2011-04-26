@@ -90,7 +90,7 @@ input[type="radio"] { width: auto; }
 	line-height: 52px; 
 	padding: 0 10px 0 10px;
 }
-.containerFull #content { height: 100%; position: fixed; top: 113px; width: 100%; }  
+/*.containerFull #content { height: 100%; position: fixed; top: 113px; width: 100%; }*/  
 
 /* all logged in pages without map */
 body.subpage .container { width: 760px }  
