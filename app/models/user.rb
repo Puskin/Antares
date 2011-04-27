@@ -77,6 +77,16 @@ class User < ActiveRecord::Base
     contacts_ids = self.contacts.map(&:id).join(", ")
     contacts = self.contacts.count
     Location.where("user_id IN (#{contacts_ids})").limit(contacts)
+  end     
+  
+  def self.search(search)
+    if search.blank?
+      nil
+    else
+      find(:all, :conditions => ['name LIKE ? 
+                               OR surname LIKE ?
+                               OR email LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+    end
   end
 
   private

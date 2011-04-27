@@ -12,8 +12,8 @@ class UsersController < ApplicationController
   def index                                              
     @contacts = current_user.contacts
     @pending_contacts = current_user.pending_contacts
-    @requested_contacts = current_user.requested_contacts
-    @users = User.all
+    @requested_contacts = current_user.requested_contacts        
+    @users_found = User.search(params[:search])
     @title = "Wszyscy uzytkownicy"
   end
   

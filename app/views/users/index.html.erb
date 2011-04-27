@@ -1,17 +1,10 @@
 <div id="main">
 
+<%= render 'find' %>     
 <%= render 'connections/contacts' %>  
 <%= render 'connections/requests' %>  
 <%= render 'connections/pending' %>  
      
-<h1>Wszyscy ludzie:</h1>
-<ul class="users">
-<% @users.each do |user| %>
-<li>
-	<%= render user %>
-</li>
-<% end %>
-
 </ul>
 
 </div>
