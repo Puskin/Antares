@@ -1,4 +1,4 @@
-<h1>Twoi znajomi:</h1>
+<h1>Twoi znajomi (<%= current_user.contacts.count %>):</h1>
 <ul>
 	<% @contacts.each do |contact| %>
 	    <% conn = Connection.conn(current_user, contact) %>

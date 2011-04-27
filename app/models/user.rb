@@ -80,12 +80,11 @@ class User < ActiveRecord::Base
   end     
   
   def self.search(search)
-    if search.blank?
+    if search.blank? or search.length < 3
       nil
     else
-      find(:all, :conditions => ['name LIKE ? 
-                               OR surname LIKE ?
-                               OR email LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+      find(:all, :conditions => ['name LIKE ? OR surname LIKE ? OR email LIKE ?',
+                                  "%#{search}%", "%#{search}%", "%#{search}%"])
     end
   end
 
