@@ -1,7 +1,7 @@
 /* `HTML tags redefine
 ----------------------------------------------------------------------------------------------------*/
 body { 
-	background: url(../images/header.jpg) top repeat-x #fff8eb;
+	background: url(../images/header.png) top repeat-x #fff8eb;
 	font: 12px "Lucida Grande", Sans-Serif; 
 	color: #6e5830;
 	line-height: 20px; 
@@ -66,7 +66,7 @@ input[type="radio"] { width: auto; }
 
 /* unlogged user pages */
 .container { width: 650px; margin: auto; }
-#header { padding: 7px 0 0 0; height: 54px; line-height: 54px; margin-bottom: 20px; }
+#header { height: 50px; margin-bottom: 20px; }
 .container #content {  
 	background: #f0e1c7;
 	border: 1px solid #c4b499;  
@@ -78,9 +78,9 @@ input[type="radio"] { width: auto; }
 .containerFull { width: 100%; height: 100%; position: relative; min-width: 960px; }
 .containerFull #header {  
 		z-index: 100;
-		height: 53px; line-height: 49px;    
+		height: 50px; line-height: 50px;    
 		margin: 0;      
-		padding: 7px 10px 0 10px;
+		padding: 0px 10px 0 10px;
 }
 .containerFull #subHeader { 
 	top: 60px; z-index: 100;
@@ -89,7 +89,8 @@ input[type="radio"] { width: auto; }
 	height: 52px;
 	line-height: 52px; 
 	padding: 0 10px 0 10px;
-}
+}      
+
 /*.containerFull #content { height: 100%; position: fixed; top: 113px; width: 100%; }*/  
 
 /* all logged in pages without map */
@@ -98,36 +99,33 @@ body.subpage .container { width: 760px }
 /* `Header elements
 ----------------------------------------------------------------------------------------------------*/
 
-#header #logo { height: 40px; line-height: 40px; padding: 0 15px 0 15px; }       
-
 #header .userInfo { float: left; height: 46px; line-height: 46px; }       
 #header .userInfo .gravatar { float: left; border: 2px solid #fff; margin: 0 10px 0 0; }
 
-#header .menu { float: right; margin-top: 4px;  }
+#header .menu { float: right; }
 #header .menu li { 
-	display: inline-block; 
+	display: inline; 
 	float: left; 
-	margin: 0 0 15px 0;
-	height: 40px;
-	line-height: 40px; 
+	height: 50px;
+	line-height: 50px;    
+	margin-left: 10px;
 }        
 
 #header a#logo {
-	background: url(../images/logo.png) no-repeat;
+	background: url(../images/logo.png) no-repeat center left;
 	text-indent: -9999px;
 	display: block;
-	height: 46px;
-	width: 126px;
+	height: 50px;
+	width: 53px;
 	float: left;
 }
 
-#header ul.menu li { display: inline }
 #header ul.menu li a {	
  	text-decoration: none;
 	text-shadow: -1px 1px 1px #ac6f17;
 	font-size: 12px;
 	color: #fff;
-	padding: 7px;
+	padding: 6px 10px 6px 10px;
 	display: inline;
 }
 
