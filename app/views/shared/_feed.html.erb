@@ -1,5 +1,11 @@
-<% unless @feed_items == [] %>
-	<ul>
-		<%= render :partial => 'shared/feed_item', :collection => @feed_items %>
-	</ul>
+<% unless @contacts == [] %>
+	<% @contacts.each do |contact| %>
+		<li>
+		<% location = Location.for_user(contact).first %>
+		<%= location.user.name %><br />
+		<%= location.title %><br />      
+		<%= location.description %><br /> 
+		<%= location.created_at %><br /><br />
+		</li>
+	<% end %>
 <% end %>

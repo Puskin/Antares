@@ -4,7 +4,7 @@ class PagesController < ApplicationController
       @title = "Ostatnie zmiany w Twoim otoczeniu"
       @page_id = "map"
       @location = Location.new
-      @feed_items = current_user.feed
+      @contacts = current_user.contacts
     else
       @title = "Zarejestruj sie lub zaloguj i zacznij zabawe!" 
     end
