@@ -30,20 +30,27 @@
 					{
 						var lat			=	parseFloat(markery[i].attributes.getNamedItem("lat").nodeValue);
 						var lon			=	parseFloat(markery[i].attributes.getNamedItem("lon").nodeValue);
-						var nazwa		=	markery[i].attributes.getNamedItem("nazwa").nodeValue;
+						var nazwa		=	markery[i].attributes.getNamedItem("nazwa").nodeValue;     
+						var ikona_url	=	markery[i].attributes.getNamedItem("ikona").nodeValue;
 						var opis		=	markery[i].attributes.getNamedItem("opis").nodeValue;
 						var tytul		=	markery[i].attributes.getNamedItem("tytul").nodeValue;  
-						var marker		=	dodajMarker(lat,lon,nazwa,opis,tytul);
+						var marker		=	dodajMarker(lat,lon,ikona_url,nazwa,opis,tytul);
 					}
 				},'xml','get');
 			}
 				
-			function dodajMarker(lat,lon,nazwa,opis,tytul)
-			{
+			function dodajMarker(lat,lon,ikona_url,nazwa,opis,tytul)
+			{   
+				var rozmiar = new google.maps.Size(35,35);   
+                var punkt_startowy = new google.maps.Point(0,0);   
+                var punkt_zaczepienia = new google.maps.Point(17,17);
+                var ikona = new google.maps.MarkerImage(ikona_url, rozmiar, punkt_startowy, punkt_zaczepienia);
+
 				var marker	=	new google.maps.Marker(
 					{
 						position: new google.maps.LatLng(lat,lon),
-						title: nazwa,
+						title: nazwa, 
+						icon: ikona,
 						map: mapa
 					}
 				);
