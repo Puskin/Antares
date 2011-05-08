@@ -8,7 +8,7 @@
 <% if @user.locations.empty? %>
 	Żadnych dodanych lokacji.
 <% else %>
-	<%= render 'shared/map_show' %>
+	<%= render 'map' %>
 <% end %>
 
 <% unless @user.locations.empty? %>

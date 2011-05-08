@@ -13,6 +13,6 @@ Jetu::Application.routes.draw do
   match '/login', :to => 'sessions#new'
   match '/logout',:to => 'sessions#destroy'
   match '/about', :to => 'pages#about'
-  match '/home',  :to => 'pages#home'
+  match '/feed',  :to => 'pages#feed'
    
 end
