@@ -1,4 +1,7 @@
-class PagesController < ApplicationController
+class PagesController < ApplicationController  
+  
+  before_filter :authenticate
+  
   def home    
     if signed_in?
       @title = "Ostatnie zmiany w Twoim otoczeniu"

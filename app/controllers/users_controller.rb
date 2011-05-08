@@ -4,9 +4,13 @@ class UsersController < ApplicationController
   before_filter :admin_user,        :only => :destroy   
   before_filter :connection_exists, :only => :show
   
-  def new
-    @title = "Zarejestruj sie"
-    @user = User.new
+  def new 
+    if current_user.nil?
+      @title = "Zarejestruj sie"
+      @user = User.new
+    else
+      redirect_to root_path
+    end
   end
   
   def index                                              
