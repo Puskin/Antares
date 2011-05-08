@@ -1,0 +1,11 @@
+<% unless @contacts == [] %>
+	<% @contacts.each do |contact| %>
+
+		<% location = Location.for_user(contact).first %>
+		<%= location.user.name %><br />
+		<%= location.title %><br />      
+		<%= location.description %><br /> 
+		<%= location.created_at %><br /><br />
+
+	<% end %>
+<% end %>
