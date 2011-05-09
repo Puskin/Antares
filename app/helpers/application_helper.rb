@@ -9,12 +9,15 @@ module ApplicationHelper
       end
   end
   
-  def container_size #for full width container after login 
-    if @page_id == "map" 
-      "containerFull"
-    else
-      "container"
-    end
+  def container_size #for full width container after login   
+    case @page_id    
+      when "map"
+        "containerFull"
+      when "map_add"
+        "containerFull"
+      else
+        "container"    
+    end              
   end        
   
   def body_class

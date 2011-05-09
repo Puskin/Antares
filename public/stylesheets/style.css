@@ -49,12 +49,17 @@ input {
 
 input[type="radio"] { width: auto; }             
 
-.actions input, input.button {
+.actions input, 
+input.button,
+a.button {
 	width: auto!important;
 	text-shadow: 1px 1px 1px #fdebcf;
 	color: #a74002;
 	border: 1px solid #c46f08;
-	background: url(../images/buttonOrange.jpg) top repeat-x #ff8b02;	
+	background: url(../images/buttonOrange.jpg) top repeat-x #ff8b02;
+	-moz-border-radius: 3px;	
+	-webkit-border-radius: 3px;
+	border-radius: 3px;	
 }  
 
 .plain { border: 0; background: none; width: auto; padding: 0; margin: 0; }
@@ -78,16 +83,16 @@ input[type="radio"] { width: auto; }
 .containerFull { width: 100%; height: 100%; position: relative; min-width: 960px; }
 .containerFull #header {  
 		z-index: 100;
-		height: 50px; line-height: 50px;    
+		height: 49px; line-height: 49px;    
 		margin: 0;      
 		padding: 0px 10px 0 10px;
 }
 .containerFull #subHeader { 
-	top: 50px; z-index: 100;
+	top: 49px; z-index: 100;
 	background: url(../images/subHeader.jpg) repeat-x scroll 0 0 transparent;
 	color: #BDA17B;
-	height: 37px;
-	line-height: 37px; 
+	height: 38px;
+	line-height: 38px; 
 	padding: 0 10px 0 10px;
 }   
 
@@ -99,22 +104,22 @@ body.subpage .container { width: 760px }
 /* `Header elements
 ----------------------------------------------------------------------------------------------------*/
 
-#header .userInfo { float: left; height: 50px; line-height: 50px; }       
+#header .userInfo { float: left; height: 49px; line-height: 49px; }       
 #header .userInfo .gravatar { float: left; border: 2px solid #fff; margin: 10px; }
 
 #header .menu { float: right; }
 #header .menu li { 
 	display: inline; 
 	float: left; 
-	height: 50px;
-	line-height: 50px;    
+	height: 49px;
+	line-height: 49px;    
 }        
 
 #header a#logo {
 	background: url(../images/logo.png) no-repeat center left;
 	text-indent: -9999px;
 	display: block;
-	height: 50px;
+	height: 49px;
 	width: 53px;
 	float: left;
 }
@@ -141,6 +146,17 @@ body.subpage .container { width: 760px }
 	-moz-border-radius: 3px;	
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
+}                       
+
+#subHeader form#geo { float: left; margin-right: 10px; } 
+
+#subHeader a.button,
+#subHeader input.button,
+#subHeader input { 
+	padding: 5px 6px 5px 6px; 
+	text-decoration: none; 
+	border: 0;
+	margin-right: 0px; 
 }
 
 /* `Content elements

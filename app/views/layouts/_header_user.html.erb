@@ -12,8 +12,22 @@
 	</ul>
 </div>   
 
-    <% if @page_id == "map" %>
-	<div id="subHeader">
-		Szukajka do miejsc, ludzi i innych rzeczy. 
+    <% if @page_id == "map" or @page_id == "map_add" %>
+	<div id="subHeader">     
+		<% if @page_id == "map"%>
+			<%= link_to "Dodaj lokalizację", new_location_path, :class => "button" %>    
+			<form action="#" style="float: right">
+				<input type="text" id="szukanyAdres" value="Szukaj znajomych na mapie" 
+					onblur="if (this.value == '') {this.value = 'Szukaj znajomych na mapie';}" onfocus="if (this.value == 'Szukaj znajomych na mapie') {this.value = '';}" />
+				<input type="submit" value="Szukaj" class="button" />    				
+			</form>
+		<% else %> 
+			<form id="geo" action="#" onsubmit="skoczDoAdresu(document.getElementById('szukanyAdres').value); return false;">
+				<input type="text" id="szukanyAdres" value="Szukany adres" 
+					onblur="if (this.value == '') {this.value = 'Szukany adres';}" onfocus="if (this.value == 'Szukany adres') {this.value = '';}" />
+				<input type="submit" value="Pokaż na mapie" class="button" />    				
+			</form>	   
+			<%= link_to "Anuluj dodawanie", root_path %> 	    	
+		<% end %>
 	</div>                   
 	<% end %>

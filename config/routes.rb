@@ -1,7 +1,7 @@
 Jetu::Application.routes.draw do
    
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :locations,:only => [:show, :create, :destroy]
+  resources :locations,:only => [:new, :show, :create, :destroy]
   resources :connections  
   resources :users do
     resources :connections

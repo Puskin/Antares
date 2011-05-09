@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     else
       @title = "Zarejestruj sie lub zaloguj i zacznij zabawe!" 
     end
-  end 
+  end   
   
   def feed
      @contacts = current_user.contacts
