@@ -4,6 +4,7 @@ class LocationsController < ApplicationController
   def new
     @location = Location.new             
     @page_id = "map_add"
+    @title = "Dodaj swoja lokalizacje"
   end
   
   def create

@@ -1,15 +1,17 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.2&amp;sensor=false&amp;region=pl"></script>                                      
 
 <script type="text/javascript">   
-		<!-- 
-		
-
-			
-			
+		<!--    
 			var mapa; // obiekt globalny			
 			var dymek = new google.maps.InfoWindow();
-			var marker = new google.maps.Marker()
-			var geokoder = new google.maps.Geocoder();
+			var marker = new google.maps.Marker({
+				// draggable:true,
+			});
+			var geokoder = new google.maps.Geocoder();   
+			var contentString = "a";
+			var infowindow = new google.maps.InfoWindow({
+			    content: contentString
+			});
 						
 			function mapaStart()  
 			{  
@@ -28,14 +30,15 @@
 					if(zdarzenie.latLng)	
 					{ 
 						marker.setPosition(zdarzenie.latLng);
-						marker.setMap(mapa);																				
-						var jeden = zdarzenie.latLng.lat();
-						var dwa = zdarzenie.latLng.lng();
-						document.getElementById('location_latitude').value = jeden;
-						document.getElementById('location_longitude').value = dwa;
+						marker.setMap(mapa);	
+						// infowindow.open(mapa,marker);																			
+						document.getElementById('location_latitude').value = zdarzenie.latLng.lat();
+						document.getElementById('location_longitude').value = zdarzenie.latLng.lng();
 					}
 				});
-			}
+			}         
+			
+			
 			
 			
 			function skoczDoAdresu(adres)
@@ -46,11 +49,7 @@
 					if(status == google.maps.GeocoderStatus.OK)
 					{
 						mapa.setZoom(19);
-						mapa.setCenter(wyniki[0].geometry.location);
-						marker.setPosition(wyniki[0].geometry.location);
-						marker.setMap(mapa);     
-						marker.setDraggable(true);
-						marker.setAnimation(google.maps.Animation.DROP);
+						mapa.setCenter(wyniki[0].geometry.location);   
 					}
 					else
 					{
