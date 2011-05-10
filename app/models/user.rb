@@ -71,7 +71,22 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt)
       user = find_by_id(id)
       (user && user.salt == cookie_salt) ? user : nil
-  end
+  end   
+  
+  def self.home?(user, location)
+    user.home_latitude == location.latitude && user.home_longitude == location.longitude 
+  end   
+  
+  def self.home!(user)
+    location = user.locations.build(
+      :user_id => user.id,
+      :title => "W domu",
+      :description => "Lokalizacja dodana atuomatycznie po powrocie do domu",
+      :latitude => user.home_latitude,
+      :longitude => user.home_longitude
+    )          
+    location.save
+  end  
   
   def self.search(search)
     if search.blank? or search.length < 3

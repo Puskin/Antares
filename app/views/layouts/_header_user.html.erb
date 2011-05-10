@@ -14,7 +14,13 @@
 
     <% if @page_id == "map" or @page_id == "map_add" %>
 	<div id="subHeader">     
-		<% if @page_id == "map"%>
+		<% if @page_id == "map"%>   
+			<% if User.home?(current_user, current_user.locations.first) %>
+				W domu
+			<% else %>
+				Wróciłem
+			<% end %> 
+			
 			<%= link_to "Dodaj lokalizację", new_location_path, :class => "button" %>    
 			<form action="#" style="float: right">
 				<input type="text" id="szukanyAdres" value="Szukaj znajomych na mapie" 
