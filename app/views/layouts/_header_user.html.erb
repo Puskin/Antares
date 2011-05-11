@@ -32,7 +32,7 @@
 										    :title => "W domu",
 										    :description => "Lokalizacja dodana atuomatycznie po powrocie do domu",
 										    :latitude => current_user.home_latitude,
-										    :longitude => current_user.home_longitude), do |f| %>
+										    :longitude => current_user.home_longitude) do |f| %>
 											<%= f.hidden_field :user_id %>
 											<%= f.hidden_field :title %>
 											<%= f.hidden_field :description %>
