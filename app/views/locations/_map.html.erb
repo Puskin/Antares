@@ -1,11 +1,3 @@
-<div id="main">
-<h1>Aktualizuj</h1>
-   
-<form id="geo" action="#" onsubmit="skoczDoAdresu(document.getElementById('szukanyAdres').value); return false;">
-	<input type="text" id="szukanyAdres" value="Szukany adres" 
-		onblur="if (this.value == '') {this.value = 'Szukany adres';}" onfocus="if (this.value == 'Szukany adres') {this.value = '';}" />
-	<input type="submit" value="Pokaż na mapie" class="button" />    				
-</form>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.2&amp;sensor=false&amp;region=pl"></script>                                      
 
 <script type="text/javascript">   
@@ -40,8 +32,8 @@
 						marker.setPosition(zdarzenie.latLng);
 						marker.setMap(mapa);	
 						// infowindow.open(mapa,marker);																			
-						document.getElementById('user_home_latitude').value = zdarzenie.latLng.lat();
-						document.getElementById('user_home_longitude').value = zdarzenie.latLng.lng();
+						document.getElementById('location_latitude').value = zdarzenie.latLng.lat();
+						document.getElementById('location_longitude').value = zdarzenie.latLng.lng();
 					}
 				});
 			}         
@@ -75,23 +67,3 @@
 			
 		-->
 </script>
-<div id="map" style="height: 450px; width: 100%"></div>        
-<script type="text/javascript">
-mapaStart();
-</script>
-
-<%= form_for(@user) do |f| %>     
-    
-	<div class="field">
-	    <%= f.text_field :home_latitude %><%= f.text_field :home_longitude %>
-	 </div>
-	
-	<%= render 'fields', :f => f %>   
-	
-	
-
-  <div class="actions">
-    <%= f.submit "Aktualizuj" %><br><br>
-  </div>
-<% end %>
-</div>
