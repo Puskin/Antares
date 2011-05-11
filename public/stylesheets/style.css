@@ -112,8 +112,21 @@ body.subpage .container { width: 760px }
 	display: inline; 
 	float: left; 
 	height: 49px;
-	line-height: 49px;    
-}        
+	line-height: 49px;   
+	position: relative; 
+}     
+#header .menu li span.info {
+	display: block;  
+	position: absolute; 
+	top: 6px; right: -3px;
+	height: 15px;
+	width: 15px;
+	text-align: center;
+	line-height: 15px;
+	font-size: 11px;  
+	color: #7d2503;
+	font-weight: bold;          
+}   
 
 #header a#logo {
 	background: url(../images/logo.png) no-repeat center left;

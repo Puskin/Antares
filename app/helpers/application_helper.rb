@@ -32,6 +32,15 @@ module ApplicationHelper
     else
       render 'layouts/header'
     end
+  end        
+  
+  def contacts_notifications 
+    requests = current_user.requested_contacts.count 
+    if requests > 0
+      requests
+    else
+      ""
+    end
   end
   
 end
