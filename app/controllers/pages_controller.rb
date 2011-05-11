@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     if signed_in?
       @title = "Ostatnie zmiany w Twoim otoczeniu"
       @page_id = "map"
+      @actuall_location = current_user.locations.first
     else
       @title = "Zarejestruj sie lub zaloguj i zacznij zabawe!" 
     end

@@ -165,7 +165,9 @@ body.subpage .container { width: 760px }
 .field { margin-bottom: 10px; }       
 .containerFull #content #map { height: 100%; width: 100%; }   
 #main ul { margin-bottom: 25px; } /*temp stuff*/  
-#main ul li form { display: inline-block; }
+#main ul li form { display: inline-block; }          
+
+form#new_location { display: inline-block; }
 
 /* `Subpage elements
 ----------------------------------------------------------------------------------------------------*/
