@@ -73,9 +73,17 @@ class User < ActiveRecord::Base
       (user && user.salt == cookie_salt) ? user : nil
   end   
   
-  def self.home?(user, location)
+  def self.at_home?(user, location)
     user.home_latitude == location.latitude && user.home_longitude == location.longitude 
   end   
+  
+  def self.has_home?(user)
+    if user.home_latitude.blank?
+      false
+    else
+      true
+    end
+  end
     
   def self.search(search)
     if search.blank? or search.length < 3
