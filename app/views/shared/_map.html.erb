@@ -2,29 +2,33 @@
 <%= javascript_include_tag "jxs" %> 
 
 <script type="text/javascript">   
-		<!-- 
 			var mapa; 	// obiekt globalny
-			var dymek; 	// okno z informacjami
+			var dymek; 	// okno z informacjami            
+                 
+			var bounds = new google.maps.LatLngBounds(); 
+			
+			 
 						
 			function mapaStart()  
-			{  
-				var wspolrzedne = new google.maps.LatLng(50.10625672736391, 18.972363958613595);
+			{          
 				var opcjeMapy = {
-					zoom: 19,
-					center: wspolrzedne,
 					mapTypeId: google.maps.MapTypeId.SATELLITE,
-				};
-				mapa = new google.maps.Map(document.getElementById("map"), opcjeMapy); 			
-				dymek = new google.maps.InfoWindow();
+				};                     
 				
-				wczytajMarkery();
-
+				mapa = new google.maps.Map(document.getElementById("map"), opcjeMapy); 	
+				dymek = new google.maps.InfoWindow(); 
+				              
+				
+				wczytajMarkery(); 
+				mapa.fitBounds(bounds);   
+				    
 			}  
 			
 			function wczytajMarkery()
 			{
 				jx.load('feed.xml', function(xml)
-				{
+				{  
+					
 					var markery = xml.getElementsByTagName("marker");
 					for(var i=0; i<markery.length; i++)
 					{
@@ -34,12 +38,14 @@
 						var ikona_url	=	markery[i].attributes.getNamedItem("ikona").nodeValue;
 						var opis		=	markery[i].attributes.getNamedItem("opis").nodeValue;
 						var tytul		=	markery[i].attributes.getNamedItem("tytul").nodeValue;  
-						var marker		=	dodajMarker(lat,lon,ikona_url,nazwa,opis,tytul);
+						var position 	=   new google.maps.LatLng(lat, lon);           
+					    bounds.extend(position); 
+						var marker		=	dodajMarker(position,ikona_url,nazwa,opis,tytul);   		  
 					}
 				},'xml','get');
 			}
 				
-			function dodajMarker(lat,lon,ikona_url,nazwa,opis,tytul)
+			function dodajMarker(position,ikona_url,nazwa,opis,tytul)
 			{   
 				var rozmiar = new google.maps.Size(35,35);   
                 var punkt_startowy = new google.maps.Point(0,0);   
@@ -48,12 +54,14 @@
 
 				var marker	=	new google.maps.Marker(
 					{
-						position: new google.maps.LatLng(lat,lon),
+						position: position,
 						title: nazwa, 
 						icon: ikona,
 						map: mapa
 					}
-				);
+				);                 
+				mapa.fitBounds(bounds);   
+				   		
 				marker.txt	=	'<strong>'+nazwa+'</strong><br/>'+tytul+'<br/>'+opis+'';
 				
 				google.maps.event.addListener(marker,"click",function()
@@ -61,15 +69,19 @@
 					dymek.setPosition(marker.getPosition());
 					dymek.setContent(marker.txt);
 					dymek.open(mapa);
-				});
+				});           
+				   
 				return marker;
 			}
-		-->
 		</script>
 		
 	   		<div id="map">
 			</div>  
 			
 			<script type="text/javascript">
-			mapaStart();
+			mapaStart();                
+			
+			
+			
+			
 			</script>
