@@ -40,23 +40,17 @@
 						var tytul		=	markery[i].attributes.getNamedItem("tytul").nodeValue;  
 						var position 	=   new google.maps.LatLng(lat, lon);           
 					    bounds.extend(position); 
-						var marker		=	dodajMarker(position,ikona_url,nazwa,opis,tytul);   		  
+						var marker		=	dodajMarker(position,nazwa,opis,tytul);   		  
 					}
 				},'xml','get');
 			}
 				
-			function dodajMarker(position,ikona_url,nazwa,opis,tytul)
+			function dodajMarker(position,nazwa,opis,tytul)
 			{   
-				var rozmiar = new google.maps.Size(35,35);   
-                var punkt_startowy = new google.maps.Point(0,0);   
-                var punkt_zaczepienia = new google.maps.Point(17,17);
-                var ikona = new google.maps.MarkerImage(ikona_url, rozmiar, punkt_startowy, punkt_zaczepienia);
-
 				var marker	=	new google.maps.Marker(
 					{
 						position: position,
 						title: nazwa, 
-						icon: ikona,
 						map: mapa
 					}
 				);                 

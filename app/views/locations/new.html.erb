@@ -1,8 +1,15 @@
 <%= render 'map' %>
 
-<div id="map" style="width: 50%; float: left;"></div>
+<form id="geo" action="#" onsubmit="skoczDoAdresu(document.getElementById('szukanyAdres').value); return false;">
+<input type="text" id="szukanyAdres" value="Szukany adres" 
+onblur="if (this.value == '') {this.value = 'Szukany adres';}" onfocus="if (this.value == 'Szukany adres') {this.value = '';}" />
+<input type="submit" value="Pokaż na mapie" class="button" />    				
+</form>
+
+<div id="map" style="width: 100%; height: 350px"></div>
 <script type="text/javascript">
 mapaStart();
-</script>         
+</script>
 
-<%= render 'fields' %>
+<%= render 'fields' %>               
+

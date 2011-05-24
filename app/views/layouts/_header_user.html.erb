@@ -12,54 +12,39 @@
 	</ul>
 </div>   
 
-	<% if @page_id == "map" or @page_id == "map_add" %>
+	<% if @page_id == "map"%>
 			<div id="subHeader">     
-			<% if @page_id == "map"%>   
-					<%= link_to "Dodaj lokalizację", new_location_path, :class => "button" %>    
-					<form action="#" style="float: right">
-					<input type="text" id="szukanyAdres" value="Szukaj znajomych na mapie" 
-					onblur="if (this.value == '') {this.value = 'Szukaj znajomych na mapie';}" onfocus="if (this.value == 'Szukaj znajomych na mapie') {this.value = '';}" />
-					<input type="submit" value="Szukaj" class="button" />    				
-					</form> 
-							<% if current_user.locations == [] %>
-								&nbsp; <%= link_to "Ustaw lokację domową!", edit_user_path(current_user) %> 
-								i <%= link_to "Zaproś znajomych!", users_path %>   
-							<% else%>
+				<%= link_to "Dodaj lokalizację", new_location_path, :class => "button" %> 
+						<% if current_user.locations == [] %>
+							&nbsp; <%= link_to "Ustaw lokację domową!", edit_user_path(current_user) %> 
+							i <%= link_to "Zaproś znajomych!", users_path %>   
+						<% else%>
+					
+									<% if User.at_home?(current_user, current_user.locations.first) %>
+											&nbsp; Aktualnie: W domu
+									<% else %>
+											&nbsp; Aktualnie: <%= @actuall_location.title %>
 							
-										<% if User.at_home?(current_user, current_user.locations.first) %>
-												&nbsp; Aktualnie: W domu
-										<% else %>
-												&nbsp; Aktualnie: <%= @actuall_location.title %>
-									
-												<% if User.has_home?(current_user) %>
-														<% form_for current_user.locations.build(
-														:user_id => current_user.id,
-													    :title => "W domu",
-													    :description => "Lokalizacja dodana atuomatycznie po powrocie do domu",
-													    :latitude => current_user.home_latitude,
-													    :longitude => current_user.home_longitude) do |f| %>
-														<%= f.hidden_field :user_id %>
-														<%= f.hidden_field :title %>
-														<%= f.hidden_field :description %>
-														<%= f.hidden_field :latitude %>
-														<%= f.hidden_field :longitude %>					    
-													    <%= f.submit "Jestem w domu!", :class => :button %>
-														<% end %>   
-												<% else %>                                             
-														<%= link_to "Ustaw lokację domową!", edit_user_path(current_user) %>
-												<% end %>
-									
-										<% end %>          
-										  
-							<% end %> 
-			<% else %> 
-					<form id="geo" action="#" onsubmit="skoczDoAdresu(document.getElementById('szukanyAdres').value); return false;">
-					<input type="text" id="szukanyAdres" value="Szukany adres" 
-					onblur="if (this.value == '') {this.value = 'Szukany adres';}" onfocus="if (this.value == 'Szukany adres') {this.value = '';}" />
-					<input type="submit" value="Pokaż na mapie" class="button" />    				
-					</form>	                                                          
-					Kliknij na mapie by upuścić marker | 
-					<%= link_to "Anuluj dodawanie", root_path %>        	
-			<% end %>
+											<% if User.has_home?(current_user) %>
+													<% form_for current_user.locations.build(
+													:user_id => current_user.id,
+												    :title => "W domu",
+												    :description => "Lokalizacja dodana atuomatycznie po powrocie do domu",
+												    :latitude => current_user.home_latitude,
+												    :longitude => current_user.home_longitude) do |f| %>
+													<%= f.hidden_field :user_id %>
+													<%= f.hidden_field :title %>
+													<%= f.hidden_field :description %>
+													<%= f.hidden_field :latitude %>
+													<%= f.hidden_field :longitude %>					    
+												    <%= f.submit "Jestem w domu!", :class => :button %>
+													<% end %>   
+											<% else %>                                             
+													<%= link_to "Ustaw lokację domową!", edit_user_path(current_user) %>
+											<% end %>
+							
+									<% end %>          
+								  
+						<% end %>         
 			</div>                   
 	<% end %>
