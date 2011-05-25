@@ -1,12 +1,11 @@
-<h1>Szukaj:</h1>
+<div class="box" id="search">   
 <% form_tag users_path, :method => 'get' do %>
-  <p style="margin-bottom: 15px">
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Szukaj", :name => nil, :class => "button" %>
-  </p>
-<% end %> 
-       
-<ul>     
+<% end %>                   
+</div>
+     
+<ul id='<% if @users_found == nil %><% else %>search<% end %>'>     
 <% if @users_found == nil %> 
 <% else %>
 <% @users_found.each do |user| %>
@@ -14,4 +13,4 @@
 <% end %>  
 <% end %>  
 
-</ul>
+</ul>          

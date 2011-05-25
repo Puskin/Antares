@@ -1,14 +1,16 @@
-<h1>Wysłane przez Ciebie, oczekują na odpowiedź:</h1>
+<h3>Wysłane zaproszenia:</h3>
 <ul>
 	<% @pending_contacts.each do |contact| %>
 	    <% conn = Connection.conn(current_user, contact) %>
 		<li>
 			<%= gravatar_for contact, :size => 30 %>
+			<p>
 			<%= contact.name %> 
 			<%= contact.surname %> 
+			</p>   
 			
 			<% form_for(conn) do |f| %>
-				<%= f.submit "Cofnij", :class => "button" %>
+				<%= f.submit "Cofnij", :class => "abort" %>
 			<% end %>
 		</li>
 	<% end %>

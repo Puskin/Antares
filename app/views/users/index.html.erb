@@ -1,10 +1,26 @@
-<div id="main">
+<div id="main">        
+	                  
+  
+<%= render 'find' %>        
 
-<%= render 'find' %>     
+<div class="box" id="friends"> 
 <%= render 'connections/contacts' %>  
-<%= render 'connections/requests' %>  
-<%= render 'connections/pending' %>  
-     
-</ul>
-
+</div>               
 </div>
+
+<div id="side">
+              
+   
+<% if current_user.requested_contacts.count == 0 %>       
+   	Brak nowych zaproszeń.<br /><br />
+<% else %>                  
+	<%= render 'connections/requests' %>
+<% end %>
+
+<% if current_user.pending_contacts.count == 0 %>       
+	Nie wysłano żadnych zaproszeń.
+<% else %>  
+	<%= render 'connections/pending' %>  
+<% end %>                         
+</div>
+

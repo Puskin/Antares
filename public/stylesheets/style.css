@@ -12,7 +12,9 @@ body {
                               
 a, a:hover, a:active { text-decoration: underline; color: #ff8f00; }      
 h1, h2, h3, h4, h5 { color: #ff8f00; margin-bottom: 10px; }
-h1 { font-size: 24px; line-height: 24px; margin-bottom: 20px; }
+h1 { font-size: 24px; line-height: 24px; margin-bottom: 20px; }      
+h2 { font-size: 18px; line-height: 20px; margin-bottom: 16px; }  
+h3 { font-size: 14px; line-height: 14px; margin-bottom: 16px; }   
 h4 { font-size: 16px; }
 
 .flash {
@@ -34,7 +36,7 @@ h4 { font-size: 16px; }
 .error { background: #fbd6d6; color: #d05f5f; border-color: #d05f5f; }
 .success { background: #defce0; color: #52875d; border-color: #52875d; }  
 
-input { 
+input, textarea { 
 	background: url(../images/inputBackground.jpg) repeat-x top #fff7ea;
 	width: 195px;
 	font-size: 12px;
@@ -46,6 +48,8 @@ input {
 	border-radius: 3px;     
 	margin-right: 10px;
 }    
+   
+textarea { height: 100px; }
 
 input[type="radio"] { width: auto; }             
 
@@ -64,7 +68,7 @@ a.button {
 
 .plain { border: 0; background: none; width: auto; padding: 0; margin: 0; }
            
-.clear { clear: both; }
+.clear { clear: both; }     
 
 /* `Site structure
 ----------------------------------------------------------------------------------------------------*/
@@ -99,7 +103,7 @@ a.button {
 .containerFull #content { height: 100%; position: fixed; top: 87px; width: 100%; }  
 
 /* all logged in pages without map */
-body.subpage .container { width: 760px }  
+body.subpage .container { width: 760px; }  
 
 /* `Header elements
 ----------------------------------------------------------------------------------------------------*/
@@ -177,8 +181,78 @@ body.subpage .container { width: 760px }
    
 .field { margin-bottom: 10px; }       
 .containerFull #content #map { height: 100%; width: 100%; }   
-#main ul { margin-bottom: 25px; } /*temp stuff*/  
-#main ul li form { display: inline-block; }          
+#main ul li form { display: inline-block; }    
+
+	  /* settings */    
+  
+form#geo,  
+#search #map,
+#search p { margin: 0 0 10px 0; }
+#search .field { margin: 0; }
+
+      /* users */
+
+body.subpage #content { padding: 0; float: left; width: 100%; }                        
+body.subpage #content #main { width: 540px; float: left; }
+body.subpage #content #main ul#search { margin: 0; padding: 20px; float: left; width: 500px; } 
+body.subpage #content #main ul#search li * { float: left; margin-right: 5px; }
+
+body.subpage #content #main #friends ul { margin: 0 0 10px 0; float: left; }
+body.subpage #content #main #friends ul li img { float: left; margin: 0 5px 0 0 ; }
+body.subpage #content #main #friends ul li { float: left; width: 100%; margin: 0 0 10px 0; }
+
+body.subpage #content #side { 
+		padding: 15px 20px 15px 20px;
+	 	border-left: 1px solid #c4b499;  
+		border-bottom: 1px solid #c4b499;    
+		width: 179px; 
+		float: left;   
+		background: #ffeed2;
+		}       
+		
+body.subpage #content #side ul { float: left; width: 100%; display: block; margin: 0 0 10px 0; }    
+body.subpage #content #main ul#search li,
+body.subpage #content #side ul li { display: block; height: 30px; line-height: 30px; margin-bottom: 5px; }	   
+body.subpage #content #side ul li img,
+body.subpage #content #side ul li p { margin: 0 5px 0 0; }         
+
+body.subpage #content #side ul li img,
+body.subpage #content #side ul li p, 
+body.subpage #content #side ul li form { float: left; } 
+
+body.subpage #content #side ul li form { margin: 7px 0 0 0; }  
+body.subpage #content #side ul li form input { margin: 0 5px 0 0 ; }               
+		     
+body.subpage #content #main a.add {
+	margin: 7px 0 0 0;
+	width: 16px; 
+	height: 16px; 
+	text-indent: -9999px;
+	display: block;
+	background: url(../images/iconAdd.png) no-repeat }		
+		
+body.subpage #content input.accept { 
+		background: url(../images/iconAccept.png) no-repeat;
+		text-indent: -9999px;
+		width: 16px;
+		height: 16px;
+		border: 0;
+		padding: 0;
+		float: left; }
+body.subpage #content input.abort { 
+		background: url(../images/iconAbort.png) no-repeat;
+		text-indent: -9999px;
+		width: 16px;
+		height: 16px;
+		border: 0;
+		padding: 0;
+		float: left; 
+}                          
+
+body.subpage #content #main .box,
+body.subpage #content .box { padding: 20px; }                           
+body.subpage #content #search.box { background: #fff; }
+
 
 form#new_location { display: inline-block; }
 

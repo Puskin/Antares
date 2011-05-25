@@ -1,6 +1,12 @@
 <div id="main">
-<h1>Aktualizuj</h1>
+<div class="box">
+	<h1 class="plain">Aktualizuj swoje dane</h1>  
+	<p>Pamiętaj by wpisać hasło po zakończeniu edycji.</p>
+</div>
    
+<div class="box" id="search">     
+	<h2 class="plain">Miejsce domowe</h2>
+	<p>Wyszukaj adres i kliknij na mapie by upuścić marker.</p>
 <form id="geo" action="#" onsubmit="skoczDoAdresu(document.getElementById('szukanyAdres').value); return false;">
 	<input type="text" id="szukanyAdres" value="Szukany adres" 
 		onblur="if (this.value == '') {this.value = 'Szukany adres';}" onfocus="if (this.value == 'Szukany adres') {this.value = '';}" />
@@ -74,24 +80,46 @@
 			  
 			
 		-->
-</script>
+</script> 
+
+
+
 <div id="map" style="height: 450px; width: 100%"></div>        
 <script type="text/javascript">
 mapaStart();
 </script>
 
+
 <%= form_for(@user) do |f| %>     
     
 	<div class="field">
-	    <%= f.text_field :home_latitude %><%= f.text_field :home_longitude %>
-	 </div>
+	    <%= f.text_field :home_latitude, :readonly => true %><%= f.text_field :home_longitude, :readonly => true %>
+	 </div>   
 	
+	</div>  
+	
+	<div class="box">   
+	<h2>Dane osobowe</h2>
 	<%= render 'fields', :f => f %>   
 	
 	
 
   <div class="actions">
     <%= f.submit "Aktualizuj" %><br><br>
-  </div>
+  </div>           
+	
+	</div>
+	
 <% end %>
+</div>         
+
+
+<div id="side">
+	
+	<h3>Miejsce domowe</h3>
+	<p>W widoku mapy pozwala jednym kliknięciem zadokować swój marker w pozycji ustalonej jako miejsce domowe. Przykładowo - jeżeli ostatni marker jaki dodaliśmy znajduje się w dyskotece a jesteśmy już w domu przy komputerze wystarczy nacisnąć "Jestem w domu!" by system sam ustawił naszą pozycję na miejsce domowe.</p>
+	
 </div>
+     
+</div>      
+

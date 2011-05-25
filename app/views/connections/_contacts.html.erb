@@ -3,12 +3,14 @@
 	<% @contacts.each do |contact| %>
 	    <% conn = Connection.conn(current_user, contact) %>
 		<li>
-			<%= gravatar_for contact, :size => 30 %>
-			<%= link_to "#{contact.name} #{contact.surname}", contact %>    
+			<%= gravatar_for contact, :size => 50 %>                    
+			<%= link_to "#{contact.name} #{contact.surname}", contact %>
+		 	<% form_for(conn) do |f| %>
+				<%= f.submit "Anuluj", :class => "abort", :confirm => "Usunąć znajomość?" %>
+			<% end %><br />
+			<%= contact.locations.first.title %>     
 			             
-		  	<% form_for(conn) do |f| %>
-				<%= f.submit "Anuluj", :class => "button" %>
-			<% end %> 
+		    
 		</li>
 	<% end %>
 </ul>

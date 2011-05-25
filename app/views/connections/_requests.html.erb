@@ -1,15 +1,17 @@
-<h1>Zapraszają Cię do znajomych:</h1>
+<h3>Zapraszają Cię:</h3>
 <ul>
 	<% @requested_contacts.each do |contact| %>
 	    <% conn = Connection.conn(current_user, contact) %>
 		<li>
 			<%= gravatar_for contact, :size => 30 %>
+			<p>
 			<%= contact.name %> 
 			<%= contact.surname %>                              
+			</p>  
 			
 			<% form_for(conn) do |f| %>
-				<%= f.submit "Akceptuje", :class => "button" %>
-				<%= f.submit "Odrzucam", :id => nil, :class => "plain" %>     
+				<%= f.submit "Akceptuje", :class => "accept" %>
+				<%= f.submit "Odrzucam", :id => nil, :class => "abort", :confirm => "Odrzucić zaproszenie?" %>     
 			<% end %>           
 		</li>
 	<% end %>
