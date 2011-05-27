@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_filter :authenticate, :only => [:show, :new, :create, :destroy]
+  before_filter :authenticate,      :only => [:show, :new, :create, :destroy]                    
   
   def new
     @location = Location.new             
@@ -22,6 +22,6 @@ class LocationsController < ApplicationController
   end
   
   def destroy
-  end
+  end                          
   
 end

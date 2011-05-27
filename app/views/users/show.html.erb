@@ -2,23 +2,26 @@
   
 <div class="box" id="search">
 
-<h1>Ostatnio zalogowany tutaj:</h1>
+<h1 class="plain">Ostatnio zalogowany tutaj:</h1>
 
 <% if @user.locations.empty? %>
 	Żadnych dodanych lokacji.
-<% else %>
+<% else %>              
+	<%= @user.locations.first.title %>, <%= @user.locations.first.description %> - <%= time_ago_in_words(@user.locations.first.created_at) %> ago<br /><br />
 	<%= render 'map' %>
 <% end %>    
 
 </div>
-
-
+                                     
 <div class="box">
+<h2>Poprzednio zalogowane lokacje</h2>  
+
 <% unless @user.locations.empty? %>
-	<ul>
+	<ul id="locations">
 		<%= render @locations %>
 	</ul>
-<% end %>      
+<% end %>        
+
 </div>
 
 </div>
@@ -26,5 +29,6 @@
 <div id="side">
 	<%= gravatar_for @user, :size => 150 %><br /><br />
 	<strong><%= @user.name %> <%= @user.surname %></strong><br /> 
-	<%= @user.locations.count %> dodanych lokacji<br><br> 
+	<%= @user.locations.count %> dodanych lokacji<br>
+	 <%= @user.contacts.count %> znajomych 
 </div>

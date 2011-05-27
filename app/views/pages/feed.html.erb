@@ -1,13 +1,16 @@
+<div class="box">
+<h1>Ostatnie zmiany w statusach Twoich znajomych</h1>	
+	
 <% unless @contacts == [] %>     
-	<ul>
+	<ul id="locations" class="big">
 	<% @contacts.each do |contact| %>
         <li>
-		<% location = Location.for_user(contact).first %>
-		<%= location.user.name %><br />
-		<%= location.title %><br />      
-		<%= location.description %><br /> 
-		<%= location.created_at %><br /><br />
+		<%= gravatar_for contact, :size => 30 %>                           
+		<% location = Location.for_user(contact).first %> 
+		<strong><%= link_to "#{contact.name} #{contact.surname}", contact %></strong><p>
+		<%= link_to "#{location.title}, #{location.description} - #{location.created_at}", location %></p>
         </li>
 	<% end %>
 	</ul>
-<% end %>
+<% end %>      
+</div>

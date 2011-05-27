@@ -251,7 +251,29 @@ body.subpage #content input.abort {
 
 body.subpage #content #main .box,
 body.subpage #content .box { padding: 20px; }                           
-body.subpage #content #search.box { background: #fff; }
+body.subpage #content #search.box { background: #fff; }   
+
+
+body.subpage #content ul#locations li { 
+		padding: 3px 0 3px 25px;
+		background: url(../images/iconPin.png) 5px 4px no-repeat #f7eddd;
+		border-bottom: 1px dotted #000;
+		margin: 0 0 3px 0; }
+
+                                                  
+		/* feed */
+		
+body.subpage #content ul#locations.big li { 
+		background-image: none; 
+		padding: 5px; 
+		height: 30px; 
+		line-height: 30px; 
+		overflow: hidden;
+}
+body.subpage #content ul#locations.big li * { float: left }    
+body.subpage #content ul#locations.big li img { margin: 0 10px 0 0 ; }            
+body.subpage #content ul#locations.big li p a { text-decoration: none; color: #6e5830; margin: 0 0 0 6px; }
+body.subpage #content ul#locations.big li p a:hover { text-decoration: underline; }
 
 
 form#new_location { display: inline-block; }

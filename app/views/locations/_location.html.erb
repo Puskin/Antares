@@ -1,8 +1,4 @@
 <li>
-	Tytuł miejsca: <%= location.title %><br />
-	Opis czynności: <%= location.description %><br />
-	Szerokość geograficzna: <%= location.latitude %><br />
-	Długość geograficzna: <%= location.longitude %><br />
-	Dodano: <%= time_ago_in_words(location.created_at) %> ago<br>
-	--
+	<%= truncate(location.title, :length => 15 ) %>, <%= truncate(location.description, :length => 40 ) %> - 
+	<%= time_ago_in_words(location.created_at) %> ago
 </li>
