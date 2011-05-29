@@ -92,6 +92,10 @@ class User < ActiveRecord::Base
       find(:all, :conditions => ['name LIKE ? OR surname LIKE ? OR email LIKE ?',
                                   "%#{search}%", "%#{search}%", "%#{search}%"])
     end
+  end    
+  
+  def self.feed(user)
+    Location.from_connected_with(user)
   end
 
   private

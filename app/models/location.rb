@@ -26,6 +26,12 @@ class Location < ActiveRecord::Base
   validates :longitude,     :presence => true
   
   default_scope :order => 'locations.created_at DESC'
-  scope :for_user, lambda {|user_id| where(:user_id => user_id)}    
+  scope :for_user, lambda {|user_id| where(:user_id => user_id)}             
+  
+  def self.from_connected_with(user)
+    connected_ids = user.contacts.map(&:id).join(", ")
+    where("user_id IN (#{connected_ids})",
+         { :user_id => user })
+  end
   
 end

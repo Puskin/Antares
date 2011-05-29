@@ -13,6 +13,8 @@ class PagesController < ApplicationController
   end   
   
   def feed
+     @title = "Aktualnosci dla statusow Twoich znajomych"     
+     @events = User.feed(current_user)
      @contacts = current_user.contacts
       respond_to do |format|                   
           format.html

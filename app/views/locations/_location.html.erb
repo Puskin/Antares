@@ -1,4 +1,4 @@
 <li>
-	<%= truncate(location.title, :length => 15 ) %>, <%= truncate(location.description, :length => 40 ) %> - 
+	<%= link_to location.title, location %>, <%= truncate(location.description, :length => 40 ) %> - 
 	<%= time_ago_in_words(location.created_at) %> ago
 </li>
