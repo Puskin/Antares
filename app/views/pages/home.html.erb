@@ -11,17 +11,9 @@
 	Udostępniaj informacje o miejscu w którym jesteś swoim znajomym i jednocześnie dowiedz się gdzie znajdują się Twoi najbliżsi. Spotykaj ich, wychodź i baw się!
 </div>
 
-<div id="shortcuts">
-	<div id="shortcutLogin">
-		<a class="shortcutPic" href="">Zaloguj</a>
-		<strong>Jesteś użytkownikiem?</strong>
-		<a href="login.html">Zaloguj się!</a>
-	</div>
-	<div id="shortcutRegister">
-		<a class="shortcutPic" href="">Zarejestruj</a>
-		<strong>Nie masz jeszcze konta?</strong>
-		<a href="register.html">Zarejestruj się!</a>
-	</div>
+<div id="shortcuts">  
+	<%= link_to "", signup_path, :class => "register" %>
+	<%= link_to "Zaloguj się", login_path %> jeżeli masz już konto.
 </div>
 
 <% end %>

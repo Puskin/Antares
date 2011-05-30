@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
-  before_filter :authenticate,      :only => [:show, :new, :create, :destroy]                    
+  before_filter :authenticate,      :only => [:show, :new, :create, :destroy]      
+  before_filter :users_connected,   :only => :show                    
+                
   
   def new
     @location = Location.new             
@@ -22,6 +24,16 @@ class LocationsController < ApplicationController
   end
   
   def destroy
-  end                          
+  end     
+  
+    private
+    
+    def users_connected 
+      location = Location.find(params[:id])
+      unless Connection.connected?(current_user, location.user)
+        flash[:error] = "Nie znasz osoby, ktora dodala ta lokacje"
+        redirect_to users_path
+      end
+    end 
   
 end
