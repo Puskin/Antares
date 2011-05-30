@@ -79,8 +79,10 @@ a.button {
 .container #content {  
 	background: #f0e1c7;
 	border: 1px solid #c4b499;  
-	padding: 20px;     
-	
+	padding: 20px; 
+	float: left;
+	width: 610px;
+	margin-bottom: 15px; 
 }
 
 /* logged in user map-page */
@@ -101,9 +103,20 @@ a.button {
 }   
 
 .containerFull #content { height: 100%; position: fixed; top: 87px; width: 100%; }  
-
+.containerFull #footer { display: none; }
+ 
 /* all logged in pages without map */
 body.subpage .container { width: 760px; }  
+#footer {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DCD6CB;
+    border-radius: 4px 4px 4px 4px;
+    clear: both;
+    color: #C0B194;
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+}
 
 /* `Header elements
 ----------------------------------------------------------------------------------------------------*/
@@ -178,10 +191,23 @@ body.subpage .container { width: 760px; }
 
 /* `Content elements
 ----------------------------------------------------------------------------------------------------*/ 
+
+		/* landing page */
+		
+.landing #content { border: 0; background: none; padding: 5px 0 0 0; }
+.landing #content iframe { 
+	margin: 0 0 15px 0;
+	webkit-box-shadow: 0px 0px 2px #000000;
+	-moz-box-shadow: 0px 0px 2px #000000;
+	box-shadow: 0px 0px 2px #000000;
+}
+
+.landing #content #about { float: left; width: 360px; margin: 0 10px 0 0; }
    
 .field { margin-bottom: 10px; }       
 .containerFull #content #map { height: 100%; width: 100%; }   
 #main ul li form { display: inline-block; }    
+
 
 	  /* settings */    
   

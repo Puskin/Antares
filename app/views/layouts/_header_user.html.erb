@@ -15,17 +15,19 @@
 
 	<% if @page_id == "map"%>
 			<div id="subHeader">     
-				<%= link_to "Dodaj lokalizację", new_location_path, :class => "button" %> 
-						<% if current_user.locations == [] %>
-							&nbsp; <%= link_to "Ustaw lokację domową!", edit_user_path(current_user) %> 
-							i <%= link_to "Zaproś znajomych!", users_path %>   
-						<% else%>
-					
-									<% if User.at_home?(current_user, current_user.locations.first) %>
+				<%= link_to "Dodaj lokalizację", new_location_path, :class => "button" %>   
+				
+						<% if current_user.home_latitude.blank? %>     						
+							&nbsp;<%= link_to "Ustaw lokację domową", edit_user_path(current_user) %>  
+						<% end %>
+
+						<% if current_user.locations != [] %> 
+						
+									<% if User.at_home?(current_user, @actuall_location) %>
 											&nbsp; Aktualnie: W domu
 									<% else %>
 											&nbsp; Aktualnie: <%= @actuall_location.title %>
-							
+				
 											<% if User.has_home?(current_user) %>
 													<% form_for current_user.locations.build(
 													:user_id => current_user.id,
@@ -40,12 +42,15 @@
 													<%= f.hidden_field :longitude %>					    
 												    <%= f.submit "Jestem w domu!", :class => :button %>
 													<% end %>   
-											<% else %>                                             
-													<%= link_to "Ustaw lokację domową!", edit_user_path(current_user) %>
-											<% end %>
-							
+											<% end %>                                             
+				
 									<% end %>          
-								  
-						<% end %>         
+									
+					  	<% end %>
+					
+						<% if current_user.contacts == [] %>
+							<%= link_to "Zaproś znajomych!", users_path %>   
+						<% end %>
+								           
 			</div>                   
 	<% end %>

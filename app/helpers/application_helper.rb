@@ -23,6 +23,8 @@ module ApplicationHelper
   def body_class
    if signed_in? && @page_id == nil
      "class='subpage'"
+   elsif @page_id == "landing"
+     "class='landing'"
    end       
   end
   

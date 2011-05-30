@@ -8,9 +8,11 @@
 		 	<% form_for(conn) do |f| %>
 				<%= f.submit "Anuluj", :class => "abort", :confirm => "Usunąć znajomość?" %>
 			<% end %><br />
-			<%= contact.locations.first.title %>     
-			             
-		    
+			<% if contact.locations != [] %>
+				<%= contact.locations.first.title %> 
+		    <% else %>
+				Nie dodano żadnych lokacji
+			<% end %>
 		</li>
 	<% end %>
 </ul>

@@ -11,7 +11,10 @@
 						
 			function mapaStart()  
 			{          
+				var myLatlng = new google.maps.LatLng(-34.397, 150.644);
 				var opcjeMapy = {
+					zoom: 15,
+					center: myLatlng,
 					mapTypeId: google.maps.MapTypeId.SATELLITE,
 				};                     
 				
@@ -74,8 +77,4 @@
 			
 			<script type="text/javascript">
 			mapaStart();                
-			
-			
-			
-			
 			</script>

@@ -8,6 +8,7 @@ class PagesController < ApplicationController
       @page_id = "map"
       @actuall_location = current_user.locations.first
     else
+      @page_id = "landing"
       @title = "Zarejestruj sie lub zaloguj i zacznij zabawe!" 
     end
   end   
