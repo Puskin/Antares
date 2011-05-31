@@ -14,13 +14,14 @@ class LocationsController < ApplicationController
       flash[:success] = "Dodales lokalizacje"
       redirect_to root_path
     else
-      @feed_items = []
-      render 'pages/home'
+      flash.now[:error] = "Wystapil problem, sprawdz dane i sprobuj ponownie"
+      render 'new'
     end
   end
   
-  def show
-    @location = Location.find(params[:id])
+  def show     
+    @location = Location.find(params[:id])  
+    @title = @location.title   
   end
   
   def destroy
@@ -30,7 +31,7 @@ class LocationsController < ApplicationController
     
     def users_connected 
       location = Location.find(params[:id])
-      unless Connection.connected?(current_user, location.user)
+      unless Connection.connected?(current_user, location.user) or current_user == location.user 
         flash[:error] = "Nie znasz osoby, ktora dodala ta lokacje"
         redirect_to users_path
       end

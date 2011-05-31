@@ -23,7 +23,6 @@
 				              
 				
 				wczytajMarkery(); 
-				mapa.fitBounds(bounds);   
 				    
 			}  
 			
@@ -54,7 +53,8 @@
 					{
 						position: position,
 						title: nazwa, 
-						map: mapa
+						map: mapa,      
+						animation: google.maps.Animation.DROP,
 					}
 				);                 
 				mapa.fitBounds(bounds);   
