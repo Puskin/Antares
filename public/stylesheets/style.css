@@ -81,7 +81,7 @@ a.button {
 	border: 1px solid #c4b499;  
 	padding: 20px; 
 	float: left;
-	width: 610px;
+	width: 608px;
 	margin-bottom: 15px; 
 }
 
@@ -108,11 +108,10 @@ a.button {
 /* all logged in pages without map */
 body.subpage .container { width: 760px; }  
 #footer {
-    background: none repeat scroll 0 0 #FFFFFF;
+    background: none repeat scroll 0 0 #fffbf4;
     border: 1px solid #DCD6CB;
-    border-radius: 4px 4px 4px 4px;
     clear: both;
-    color: #C0B194;
+    color: #8a7353;
     display: block;
     margin-bottom: 20px;
     padding: 10px 20px;
@@ -235,8 +234,8 @@ form#geo,
 
       /* users */
 
-body.subpage #content { padding: 0; float: left; width: 100%; }                        
-body.subpage #content #main { width: 540px; float: left; }
+body.subpage #content { padding: 0; float: left; width: 758px; }                        
+body.subpage #content #main { width: 538px; float: left; }
 body.subpage #content #main ul#search { margin: 0; padding: 20px; float: left; width: 500px; } 
 body.subpage #content #main ul#search li * { float: left; margin-right: 5px; }
 
