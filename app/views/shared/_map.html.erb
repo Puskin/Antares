@@ -11,11 +11,11 @@
 						
 			function mapaStart()  
 			{          
-				var myLatlng = new google.maps.LatLng(-34.397, 150.644);
+				var myLatlng = new google.maps.LatLng(52.146973,18.918457);
 				var opcjeMapy = {
-					zoom: 15,
+					zoom: 7,
 					center: myLatlng,
-					mapTypeId: google.maps.MapTypeId.SATELLITE,
+					mapTypeId: google.maps.MapTypeId.HYBRID,
 				};                     
 				
 				mapa = new google.maps.Map(document.getElementById("map"), opcjeMapy); 	
@@ -57,7 +57,8 @@
 						animation: google.maps.Animation.DROP,
 					}
 				);                 
-				mapa.fitBounds(bounds);   
+                                     
+				mapa.fitBounds(bounds);       
 				   		
 				marker.txt	=	'<strong>'+nazwa+'</strong><br/>'+tytul+'<br/>'+opis+'';
 				

@@ -1,7 +1,7 @@
 <div class="box">
 <h1>Ostatnie zmiany w statusach Twoich znajomych</h1>	
 	
-<% if current_user.contacts.empty? %>     
+<% if User.feed(current_user).empty? %>     
 	Nikt jeszcze nic nie dodał.
 <% else %>	
 	<ul id="locations" class="big">
