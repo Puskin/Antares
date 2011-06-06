@@ -9,14 +9,15 @@
 </div>
 
 <div id="side">
-              
-   
+                                            
+<h3>Zapraszają Cię:</h3>  
 <% if current_user.requested_contacts.count == 0 %>       
    	Brak nowych zaproszeń.<br /><br />
 <% else %>                  
 	<%= render 'connections/requests' %>
-<% end %>
+<% end %>                           
 
+<h3>Wysłane zaproszenia:</h3>    
 <% if current_user.pending_contacts.count == 0 %>       
 	Nie wysłano żadnych zaproszeń.
 <% else %>  

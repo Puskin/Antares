@@ -4,7 +4,9 @@
     	<title><%= title %></title>
 		<%= csrf_meta_tag %>
 		<%= render 'layouts/stylesheets' %>
-		<%= javascript_include_tag :defaults %>
+		<% unless @page_id == "landing" %>	
+			<%= javascript_include_tag :defaults %>      
+		<% end %>
 	</head>
 	
 	<body <%= body_class %>>
@@ -14,16 +16,22 @@
 			<%= show_header %>
 			                  
 			<% flash.each do |key, value| %>
-			  <div class="flash <%= key %>"><%= value %></div>
+			  	<div class="flash <%= key %>" id="notice"><%= value %></div>    
+				<%= content_tag :script, :type => "text/javascript" do -%>
+			        setTimeout("new Effect.Fade('notice');", 3000);
+			    <% end %>     
 			<% end %>
 			
 			<div id="content">				
 				<%= yield %>
 			</div>
 			
-			<div id="footer">
-				Copyright Jetu.pl! kontakt@jetu.pl
-			</div>
+			<% unless @page_id == "map" %>
+				<div id="footer">
+					Copyright Jetu.pl! kontakt@jetu.pl
+				</div>                     
+			<% end %>            
+			
 		</div>
   	</body>
 </html>

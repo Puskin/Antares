@@ -1,4 +1,3 @@
-<h3>Wysłane zaproszenia:</h3>
 <ul>
 	<% @pending_contacts.each do |contact| %>
 	    <% conn = Connection.conn(current_user, contact) %>

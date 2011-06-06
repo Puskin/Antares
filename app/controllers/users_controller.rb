@@ -34,7 +34,8 @@ class UsersController < ApplicationController
       sign_in @user
       redirect_to root_path
       flash[:success] = "Zarejestrowany! Witaj w Jetu #{@user.name}!"
-    else
+    else                                    
+      flash.now[:error] = "Wystapil blad, sprawdz ponownie wszystkie pola"   
       @title = "Zarejestruj sie"
       render 'new'
     end
@@ -50,7 +51,8 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       flash[:success] = "Profil zaktualizowany!"
       redirect_to edit_user_path(@user)
-    else
+    else              
+      flash.now[:error] = "Wystapil problem, prawdopodobnie nie uzupelniono hasla"
       @title = "Edycja uzytkownika"
       render 'edit'
     end

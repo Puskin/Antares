@@ -1,4 +1,3 @@
-<h3>Zapraszają Cię:</h3>
 <ul>
 	<% @requested_contacts.each do |contact| %>
 	    <% conn = Connection.conn(current_user, contact) %>

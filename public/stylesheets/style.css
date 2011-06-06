@@ -30,7 +30,6 @@ h4 { font-size: 16px; }
 	text-shadow: 1px 1px 1px #fff;   
 	z-index: 199;
 }     
-.containerFull .flash { margin: 20px; position: relative; }
 
 .notice { background: #fffbc1; color: #ce8c1a; border-color: #ce8c1a; }
 .error { background: #fbd6d6; color: #d05f5f; border-color: #d05f5f; }
@@ -103,7 +102,9 @@ a.button {
 }   
 
 .containerFull #content { height: 100%; position: fixed; top: 87px; width: 100%; }  
-.containerFull #footer { display: none; }
+.containerFull #footer { display: none; }   
+
+.containerFull .flash { float: left; margin: 20px 0 0 85px; position: relative; }
  
 /* all logged in pages without map */
 body.subpage .container { width: 760px; }  
@@ -244,7 +245,7 @@ body.subpage #content #main #friends ul li img { float: left; margin: 0 5px 0 0 
 body.subpage #content #main #friends ul li { float: left; width: 100%; margin: 0 0 10px 0; }
 
 body.subpage #content #side { 
-		padding: 15px 20px 15px 20px;
+		padding: 20px;
 	 	border-left: 1px solid #c4b499;  
 		border-bottom: 1px solid #c4b499;    
 		width: 179px; 
