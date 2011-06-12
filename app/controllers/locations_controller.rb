@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class LocationsController < ApplicationController
   before_filter :authenticate,      :only => [:show, :new, :create, :destroy]      
   before_filter :users_connected,   :only => :show                    
@@ -11,10 +13,10 @@ class LocationsController < ApplicationController
   def create
     @location = current_user.locations.build(params[:location])
     if @location.save
-      flash[:success] = "Dodales lokalizacje"
+      flash[:success] = "Dodano lokalizację"
       redirect_to root_path
     else
-      flash.now[:error] = "Wystapil problem, sprawdz dane i sprobuj ponownie"
+      flash.now[:error] = "Wystąpil problem, sprawdź dane i spróbuj ponownie"
       render 'new'
     end
   end

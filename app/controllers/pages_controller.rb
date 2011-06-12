@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class PagesController < ApplicationController  
   
   before_filter :authenticate, :except => [:home, :about]
@@ -9,12 +11,12 @@ class PagesController < ApplicationController
       @actuall_location = current_user.locations.first
     else
       @page_id = "landing"
-      @title = "Zarejestruj sie lub zaloguj i zacznij zabawe!" 
+      @title = "Zarejestruj się lub zaloguj i zacznij zabawę!" 
     end
   end   
   
   def feed
-     @title = "Aktualnosci dla statusow Twoich znajomych"     
+     @title = "Aktualności dla statusów Twoich znajomych"     
      @events = User.feed(current_user)
      @contacts = current_user.contacts
       respond_to do |format|                   

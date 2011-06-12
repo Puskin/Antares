@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class SessionsController < ApplicationController
   def new
     @title = "Zaloguj sie"
@@ -10,7 +12,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:session][:email],
                              params[:session][:password])
     if user.nil?
-      flash.now[:error] = "Nieprawidlowa kombinacja email/haslo"
+      flash.now[:error] = "Nieprawidłowa kombinacja email/hasło"
       @title = "Zaloguj sie"
       render 'new'
     else

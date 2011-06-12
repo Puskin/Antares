@@ -14,20 +14,14 @@
 </div>   
 
 	<% if @page_id == "map"%>
-			<div id="subHeader">     
-				<%= link_to "Dodaj lokalizację", new_location_path, :class => "button" %>   
-				
-						<% if current_user.home_latitude.blank? %>     						
-							&nbsp;<%= link_to "Ustaw lokację domową", edit_user_path(current_user) %>  
-						<% end %>    
-
-						<% if current_user.locations != [] %> 
+			<div id="subHeader">       
+				                    
+				    	<% if current_user.locations != [] %>      
+					
+									<%= link_to "Aktualnie: #{@actuall_location.title}", @actuall_location, :class => :button, :id => :current_location %>  
 						
-									<% if User.at_home?(current_user, @actuall_location) %>
-											&nbsp; Aktualnie: W domu
-									<% else %>
-											&nbsp; Aktualnie: <%= @actuall_location.title %>
-				
+									<% unless User.at_home?(current_user, @actuall_location) %>
+											
 											<% if User.has_home?(current_user) %>
 													<% form_for current_user.locations.build(
 													:user_id => current_user.id,
@@ -40,13 +34,18 @@
 													<%= f.hidden_field :description %>
 													<%= f.hidden_field :latitude %>
 													<%= f.hidden_field :longitude %>					    
-												    <%= f.submit "Jestem w domu!", :class => :button %>
+												    <%= f.submit "Jestem w domu!", :class => :button, :id => :comeback %>
 													<% end %>   
 											<% end %>                                             
 				
 									<% end %>          
 								  
-					  	<% end %>      
+					  	<% end %>		  
+					
+					
+						<% if current_user.home_latitude.blank? %>     						
+							<%= link_to "Ustaw lokację domową", edit_user_path(current_user), :class => :button, :id => :set_home %>  
+						<% end %>        
 					
 					
 						<% if current_user.locations.first.blank? %>
@@ -63,15 +62,16 @@
 									<%= f.hidden_field :description %>
 									<%= f.hidden_field :latitude %>
 									<%= f.hidden_field :longitude %>					    
-								    <%= f.submit "Jestem w domu!", :class => :button %>
+								    <%= f.submit "Jestem w domu!", :class => :button, :id => :comeback %>
 									<% end %>   
 							<% end %>
 							
-						<% end %>
+						<% end %>                   
 						
+						<%= link_to "Dodaj nową lokalizację", new_location_path, :class => :button %>						
 					
 						<% if current_user.contacts == [] %>
-							<%= link_to "Zaproś znajomych!", users_path %>   
+							<%= link_to "Zaproś znajomych!", users_path, :class => :button, :id => :invite %>   
 						<% end %>
 								           
 			</div>                   

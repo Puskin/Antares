@@ -69,6 +69,14 @@ a.button {
            
 .clear { clear: both; }     
 
+#error_explanation { margin-bottom: 20px; padding: 20px; background: #fef2e0; }
+#error_explanation h2 { margin-bottom: 5px; }
+#error_explanation p { margin-bottom: 20px; }
+
+.field { width: 100%; float: left; margin: 0 0 10px 0; }
+.field.hidden { display: none; margin: 0; }
+.field_with_errors { float: left; display: block; }
+ 
 /* `Site structure
 ----------------------------------------------------------------------------------------------------*/
 
@@ -189,6 +197,33 @@ body.subpage .container { width: 760px; }
 	margin-right: 0px; 
 }
 
+#subHeader a#current_location { 
+	background: #594730; 
+	color: #ab8b63; 
+	text-shadow: none;
+	-webkit-box-shadow: inset 0px 0px 2px #000000;
+	-moz-box-shadow: inset 0px 0px 2px #000000;
+	box-shadow: inset 0px 0px 2px #000000;
+}       
+#subHeader a#current_location:hover { text-decoration: underline; }          
+/*
+#subHeader input#comeback { 
+   	padding: 4px 6px;
+	background-image: url(../images/buttonDark.jpg);
+	background-color: #bb6e02;
+	color: #391701; 
+	text-shadow: none; } 
+*/
+#subHeader input#comeback,
+#subHeader a#set_home  { margin-right: 20px; padding: 5px 6px; }    
+
+#subHeader a#set_home { 
+	background-image: url(../images/buttonGreen.jpg);
+	background-color: #25902a;
+	color: #b4f5b1;   
+	text-shadow: none;
+}
+
 /* `Content elements
 ----------------------------------------------------------------------------------------------------*/ 
 
@@ -219,9 +254,7 @@ body.subpage .container { width: 760px; }
 .landing #content a.register:active { background-position: 0 -98px; }
 
   	/* map page */
-	
-   
-.field { margin-bottom: 10px; }       
+	    
 .containerFull #content #map { height: 100%; width: 100%; }   
 #main ul li form { display: inline-block; }    
 

@@ -9,7 +9,7 @@
         <li>
 		<%= gravatar_for event.user, :size => 30 %>                           
 		<strong><%= link_to "#{event.user.name} #{event.user.surname}", event.user %></strong><p>
-		<%= link_to "#{event.title}", event %>&nbsp;<%= truncate(event.description, :length => 50) %> <%= event.created_at %></p>
+		<%= link_to "#{event.title}", event %>&nbsp;<%= truncate(event.description, :length => 50) %><%= time_ago_in_words(event.created_at) %> temu.</p>
         </li>
 	<% end %>
 	</ul>

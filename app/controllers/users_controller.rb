@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class UsersController < ApplicationController
   before_filter :authenticate,      :only => [:index, :show, :edit, :update, :destroy]
   before_filter :correct_user,      :only => [:edit, :update]
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
       redirect_to root_path
       flash[:success] = "Zarejestrowany! Witaj w Jetu #{@user.name}!"
     else                                    
-      flash.now[:error] = "Wystapil blad, sprawdz ponownie wszystkie pola"   
+      flash.now[:error] = "Wystąpił błąd, sprawdź ponownie wszystkie pola"   
       @title = "Zarejestruj sie"
       render 'new'
     end
