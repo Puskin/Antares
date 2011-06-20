@@ -7,16 +7,16 @@ class LocationsController < ApplicationController
   
   def new
     @location = Location.new             
-    @title = "Dodaj swoja lokalizacje"
+    @title = "dodaj swoją aktualną lokalizację"
   end
   
   def create
     @location = current_user.locations.build(params[:location])
     if @location.save
-      flash[:success] = "Dodano lokalizację"
+      flash[:success] = "Dodano lokalizację."
       redirect_to root_path
     else
-      flash.now[:error] = "Wystąpil problem, sprawdź dane i spróbuj ponownie"
+      flash.now[:error] = "Wystąpił problem, sprawdź dane i spróbuj ponownie."
       render 'new'
     end
   end
@@ -34,7 +34,7 @@ class LocationsController < ApplicationController
     def users_connected 
       location = Location.find(params[:id])
       unless Connection.connected?(current_user, location.user) or current_user == location.user 
-        flash[:error] = "Nie znasz osoby, ktora dodala ta lokacje"
+        flash[:error] = "Nie znasz osoby, która dodała tą lokalizację."
         redirect_to users_path
       end
     end 

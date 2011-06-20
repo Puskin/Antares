@@ -2,7 +2,7 @@
 
 class SessionsController < ApplicationController
   def new
-    @title = "Zaloguj sie"
+    @title = "zaloguj się"
     unless current_user.nil? 
       redirect_to root_path
     end
@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:session][:email],
                              params[:session][:password])
     if user.nil?
-      flash.now[:error] = "Nieprawidłowa kombinacja email/hasło"
-      @title = "Zaloguj sie"
+      flash.now[:error] = "Nieprawidłowa kombinacja e-maila i hasła."
+      @title = "zaloguj się"
       render 'new'
     else
       sign_in user            
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   
   def destroy
       sign_out   
-      flash[:notice] = "Wylogowano z Jetu"
+      flash[:notice] = "Z powodzeniem wylogowano z Jetu."
       redirect_to root_path
   end
 

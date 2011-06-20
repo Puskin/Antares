@@ -13,10 +13,10 @@ class ConnectionsController < ApplicationController
     @contact = User.find(params[:user_id])
     respond_to do |format|
        if Connection.request(current_user, @contact)
-         flash[:success] = "Wyslano zaproszenie!"
+         flash[:success] = "Wysłano zaproszenie."
          format.html { redirect_to users_path }
        else
-         flash[:error] = "Nieprawidlowe polaczenie"
+         flash[:error] = "Nieprawidłowe połączenie."
          format.html { redirect_to users_path }
        end
     end
@@ -29,16 +29,16 @@ class ConnectionsController < ApplicationController
       case params[:commit]
       when "Akceptuje"
         @connection.accept
-        flash[:success] = "Zaakceptowano polaczenie"
+        flash[:success] = "Zaakceptowano połączenie."
       when "Odrzucam"
         @connection.breakup
-        flash[:notice] = "Odrzucono polaczenie z #{name}"
+        flash[:notice] = "Odrzucono połączenie z #{name}."
       when "Cofnij"
         @connection.breakup
-        flash[:notice] = "Anulowano zaproszenie"
+        flash[:notice] = "Anulowano zaproszenie."
       when "Anuluj"
         @connection.breakup
-        flash[:notice] = "Anulowano zwiazek"
+        flash[:notice] = "Anulowano związek."
       end
       format.html { redirect_to users_path }
     end
@@ -49,11 +49,11 @@ class ConnectionsController < ApplicationController
   def authorize_user   
     @connection = Connection.find(params[:id], :include => [:user, :contact])
     unless current_user?(@connection.user)
-      flash[:error] = "Niedozwolone polaczenie"
+      flash[:error] = "Niedozwolone połączenie."
       redirect_to root_path
     end
   rescue ActiveRecord::RecordNotFound
-    flash[:error] = "Nieprawidlowe albo wygasle polaczenie"
+    flash[:error] = "Nieprawidłowe albo wygasłe połączenie."
     redirect_to root_path
   end
   

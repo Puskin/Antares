@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module SessionsHelper
   def sign_in(user)
       cookies.permanent.signed[:remember_token] = [user.id, user.salt]
@@ -30,7 +32,7 @@ module SessionsHelper
   end
   
   def deny_access
-      redirect_to login_path, :notice => "Zaloguj sie by uzyskac dostep do tej strony"
+      redirect_to login_path, :notice => "Zaloguj się by uzyskać dostęp do tej strony."
   end
   
   private

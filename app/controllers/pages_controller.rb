@@ -6,17 +6,17 @@ class PagesController < ApplicationController
   
   def home    
     if signed_in?
-      @title = "Ostatnie zmiany w Twoim otoczeniu"
+      @title = "ostatnie zmiany w Twoim otoczeniu"
       @page_id = "map"
       @actuall_location = current_user.locations.first
     else
       @page_id = "landing"
-      @title = "Zarejestruj się lub zaloguj i zacznij zabawę!" 
+      @title = "zarejestruj się lub zaloguj i zacznij zabawę!" 
     end
   end   
   
   def feed
-     @title = "Aktualności dla statusów Twoich znajomych"     
+     @title = "aktualności dla statusów Twoich znajomych"     
      @events = User.feed(current_user)
      @contacts = current_user.contacts
       respond_to do |format|                   
@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   end 
 
   def about
-    @title = "Dlaczego pokochasz Jetu?"
+    @title = "dlaczego pokochasz Jetu?"
   end
 
 end

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   
   def new 
     if current_user.nil?
-      @title = "Zarejestruj sie"
+      @title = "zarejestruj swoje konto"
       @user = User.new
     else
       redirect_to root_path
@@ -20,14 +20,14 @@ class UsersController < ApplicationController
     @pending_contacts = current_user.pending_contacts
     @requested_contacts = current_user.requested_contacts        
     @users_found = User.search(params[:search])
-    @title = "Wszyscy uzytkownicy"
+    @title = "wszyscy użytkownicy"
   end
   
   def show
     @user = User.find(params[:id])
     @locations = @user.locations.find(:all)
     @latest_location = @user.locations.find(:first)
-    @title = "#{@user.name} #{@user.surname}"
+    @title = "profil użytkownika #{@user.name} #{@user.surname}"
   end
   
   def create
@@ -35,27 +35,27 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       redirect_to root_path
-      flash[:success] = "Zarejestrowany! Witaj w Jetu #{@user.name}!"
+      flash[:success] = "Zarejestrowano! Witaj w Jetu #{@user.name}!"
     else                                    
-      flash.now[:error] = "Wystąpił błąd, sprawdź ponownie wszystkie pola"   
-      @title = "Zarejestruj sie"
+      flash.now[:error] = "Wystąpił błąd, sprawdź ponownie wszystkie pola."   
+      @title = "zarejestruj się"
       render 'new'
     end
   end
   
   def edit
     @user = User.find(params[:id])
-    @title = "Edycja profilu #{@user.name} #{@user.surname}"
+    @title = "edycja profilu użytkownika #{@user.name} #{@user.surname}"
   end
   
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = "Profil zaktualizowany!"
+      flash[:success] = "Profil zaktualizowany z powodzeniem."
       redirect_to edit_user_path(@user)
     else              
-      flash.now[:error] = "Wystapil problem, prawdopodobnie nie uzupelniono hasla"
-      @title = "Edycja uzytkownika"
+      flash.now[:error] = "Wystąpił problem, prawdopodobnie nie uzupełniono hasła."
+      @title = "edycja profilu użytkownika #{@user.name} #{@user.surname}"
       render 'edit'
     end
   end
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
         @contact = User.find(params[:id])
         @connection = Connection.connected?(@user, @contact)
         unless @connection == true or current_user?(@contact)
-          flash[:error] = "Nie jestescie znajomymi"
+          flash[:error] = "Nie jesteście znajomymi."
           redirect_to users_path
         end            
       end
