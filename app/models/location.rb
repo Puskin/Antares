@@ -28,9 +28,14 @@ class Location < ActiveRecord::Base
   default_scope :order => 'locations.created_at DESC'
   scope :for_user, lambda {|user_id| where(:user_id => user_id)}             
   
-  def self.from_connected_with(user)
-    connected_ids = user.contacts.map(&:id).join(", ")
-    where("user_id = :user_id OR user_id IN (#{connected_ids})",
+  def self.from_connected_with(user)  
+    if user.contacts.empty? 
+      connected_ids = user.id
+    else
+      connected_ids = user.contacts.map(&:id).join(", ")
+    end
+    
+    where("user_id IN (#{connected_ids}) OR user_id = :user_id",
          { :user_id => user })
   end
   
