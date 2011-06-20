@@ -30,7 +30,7 @@ class Location < ActiveRecord::Base
   
   def self.from_connected_with(user)
     connected_ids = user.contacts.map(&:id).join(", ")
-    where("user_id IN (#{connected_ids}) OR user_id = :user_id",
+    where("user_id IN (0,#{connected_ids}) OR user_id = :user_id",
          { :user_id => user })
   end
   
