@@ -89,7 +89,7 @@ class User < ActiveRecord::Base
     if search.blank? or search.length < 3
       nil
     else
-      find(:all, :conditions => ['name LIKE ? OR surname LIKE ? OR email LIKE ?',
+      find(:all, :conditions => ['name ILIKE ? OR surname ILIKE ? OR email ILIKE ?',
                                   "%#{search}%", "%#{search}%", "%#{search}%"])
     end
   end    

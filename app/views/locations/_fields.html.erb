@@ -2,11 +2,11 @@
 	<%= render 'shared/error_messages', :object => f.object %>
 	<div class="field">
 		<%= f.text_field :title %>
-		<%= f.label :title %>
+		<%= f.label "Nazwa miejsca (gdzie jesteś)" %>
 	</div>
 	<div class="field">
 		<%= f.text_area :description %>
-		<%= f.label :description %>
+		<%= f.label "Opis (co robisz)" %>
 	</div>
 	<div class="field hidden">
 		<%= f.label :latitude %>
