@@ -114,7 +114,10 @@ mapaStart();
 </div>         
 
 
-<div id="side">
+<div id="side">  
+	
+	<h3>Twój avatar</h3>
+	<p><%= gravatar_for current_user, :size => 180 %><br/>Aktualnie Jetu obsługuje jedynie Gravatary, ustaw swój Gravatar <a href="http://pl.gravatar.com/" target="_blank">tutaj</a>.<br/ ><br/ ></p>
 	
 	<h3>Miejsce domowe</h3>
 	<p>W widoku mapy pozwala jednym kliknięciem zadokować swój marker w pozycji ustalonej jako miejsce domowe. Przykładowo - jeżeli ostatni marker jaki dodaliśmy znajduje się w kawiarni a jesteśmy już w domu przy komputerze wystarczy nacisnąć "Jestem w domu!" by system sam ustawił naszą pozycję na miejsce domowe.</p>
