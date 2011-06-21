@@ -4,12 +4,28 @@
 <%= render 'find' %>        
 
 <div class="box" id="friends"> 
-<%= render 'connections/contacts' %>  
-</div>               
+<%= render 'connections/contacts' %>    
+</div>                                  
+
+
+
+<% if current_user.admin? %>
+<div style="clear: both">
+<% people = User.all %>
+
+	<% people.each do |person| %>
+		<%= person.name %> <%= person.surname %>, 
+	<% end %>
+</div>
+<% end %>              
+               
+
+
 </div>
 
-<div id="side">
-                                            
+
+
+<div id="side">                                            
 <h3>Zapraszają Cię:</h3>  
 <% if current_user.requested_contacts.count == 0 %>       
    	Brak nowych zaproszeń.<br /><br />
