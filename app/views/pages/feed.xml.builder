@@ -5,7 +5,8 @@ xml.dane do
   	  xml.marker(
   	    :lat => location.latitude, 
   	    :lon => location.longitude, 
-  	    :nazwa => marker.name, 
+  	    :nazwa => "#{marker.name} #{marker.surname}", 
+		:czas => "#{time_ago_in_words(location.created_at)} temu",
   	    :opis => location.description, 
   	    :tytul => location.title, 
   	    :ikona => GravatarImageTag.gravatar_url(marker.email, :size => 35)
@@ -19,7 +20,8 @@ xml.dane do
 	    :lat => user.latitude, 
 	    :lon => user.longitude, 
 	    :nazwa => "Ja", 
-	    :opis => user.description, 
+	    :czas => "#{time_ago_in_words(user.created_at)} temu",
+		:opis => user.description, 
 	    :tytul => user.title,    
 	    :ikona => GravatarImageTag.gravatar_url(current_user.email, :size => 35)  
 	    )

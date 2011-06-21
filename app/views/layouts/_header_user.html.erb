@@ -26,7 +26,7 @@
 													<% form_for current_user.locations.build(
 													:user_id => current_user.id,
 												    :title => "W domu",
-												    :description => "Lokalizacja dodana atuomatycznie po powrocie do domu",
+												    :description => "Lokalizacja dodana automatycznie po powrocie do domu",
 												    :latitude => current_user.home_latitude,
 												    :longitude => current_user.home_longitude) do |f| %>
 													<%= f.hidden_field :user_id %>
@@ -54,7 +54,7 @@
 									<% form_for current_user.locations.build(
 									:user_id => current_user.id,
 								    :title => "W domu",
-								    :description => "Lokalizacja dodana atuomatycznie po powrocie do domu",
+								    :description => "Lokalizacja dodana automatycznie po powrocie do domu",
 								    :latitude => current_user.home_latitude,
 								    :longitude => current_user.home_longitude) do |f| %>
 									<%= f.hidden_field :user_id %>

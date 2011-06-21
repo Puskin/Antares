@@ -40,14 +40,15 @@
 						var ikona_url	=	markery[i].attributes.getNamedItem("ikona").nodeValue;
 						var opis		=	markery[i].attributes.getNamedItem("opis").nodeValue;
 						var tytul		=	markery[i].attributes.getNamedItem("tytul").nodeValue;  
+						var czas		=	markery[i].attributes.getNamedItem("czas").nodeValue;  
 						var position 	=   new google.maps.LatLng(lat, lon);           
 					    bounds.extend(position); 
-						var marker		=	dodajMarker(position,nazwa,opis,tytul);   		  
+						var marker		=	dodajMarker(position,nazwa,opis,tytul,czas);   		  
 					}
 				},'xml','get');
 			}
 				
-			function dodajMarker(position,nazwa,opis,tytul)
+			function dodajMarker(position,nazwa,opis,tytul,czas)
 			{   
 				var marker	=	new google.maps.Marker(
 					{
@@ -60,7 +61,7 @@
                                      
 				mapa.fitBounds(bounds);       
 				   		
-				marker.txt	=	'<strong>'+nazwa+'</strong><br/>'+tytul+'<br/>'+opis+'';
+				marker.txt	=	'<strong>'+nazwa+'</strong><br/>'+tytul+'<br/>'+opis+'<br/>'+czas+'';
 				
 				google.maps.event.addListener(marker,"click",function()
 				{
