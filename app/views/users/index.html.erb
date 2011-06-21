@@ -14,7 +14,7 @@
 <% people = User.all %>
 
 	<% people.each do |person| %>
-		<%= person.name %> <%= person.surname %>, 
+		<%= person.id %> <%= person.name %> <%= person.surname %><br/> 
 	<% end %>
 </div>
 <% end %>              
