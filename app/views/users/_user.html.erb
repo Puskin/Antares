@@ -2,6 +2,6 @@
 <%= link_to "#{user.name} #{user.surname}", user %>
 <%= link_to "DO ZNAJOMYCH", user_connections_path(user), :method => :post, :class => "add" %>
 <% if current_user.admin? %>
- | <%= link_to "Usuń", user, :method => :delete, :confirm => "Na pewno?",
+ <%= link_to "Usuń", user, :method => :delete, :confirm => "Na pewno?",
 							 :title => "Usuń #{user.name} #{user.surname}"%>
 <% end %>
