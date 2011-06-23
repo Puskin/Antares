@@ -9,7 +9,7 @@ xml.dane do
 		:czas => "#{time_ago_in_words(location.created_at)} temu",
   	    :opis => location.description, 
   	    :tytul => location.title, 
-  	    :ikona => GravatarImageTag.gravatar_url(marker.email, :size => 35)
+  	    :ikona => GravatarImageTag.gravatar_url(marker.email, :size => 39)
   	    )
 	  end
   end 
@@ -23,7 +23,7 @@ xml.dane do
 	    :czas => "#{time_ago_in_words(user.created_at)} temu",
 		:opis => user.description, 
 	    :tytul => user.title,    
-	    :ikona => GravatarImageTag.gravatar_url(current_user.email, :size => 35)  
+	    :ikona => GravatarImageTag.gravatar_url(current_user.email, :size => 39)  
 	    )
   end
     

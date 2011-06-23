@@ -24,7 +24,21 @@
 				
 				wczytajMarkery(); 
 				    
-			}  
+			}    
+			
+			// wspólne cechy ikon
+			var rozmiar = new google.maps.Size(39,39);
+			var punkt_startowy = new google.maps.Point(0,0);
+			var punkt_zaczepienia = new google.maps.Point(20,51);    
+			
+			// wspólne cechy cienia
+			var rozmiar_cien = new google.maps.Size(49,56);
+			var c_punkt_startowy = new google.maps.Point(0,0);
+			var c_punkt_zaczepienia = new google.maps.Point(25,56);  
+			
+			
+			var cien = new google.maps.MarkerImage("../images/markerShadow.png", rozmiar_cien, c_punkt_startowy, c_punkt_zaczepienia);
+			
 			
 			function wczytajMarkery()
 			{
@@ -38,24 +52,27 @@
 						var lon			=	parseFloat(markery[i].attributes.getNamedItem("lon").nodeValue);
 						var nazwa		=	markery[i].attributes.getNamedItem("nazwa").nodeValue;     
 						var ikona_url	=	markery[i].attributes.getNamedItem("ikona").nodeValue;
+						var ikona 		= 	new google.maps.MarkerImage(ikona_url, rozmiar, punkt_startowy, punkt_zaczepienia)
 						var opis		=	markery[i].attributes.getNamedItem("opis").nodeValue;
 						var tytul		=	markery[i].attributes.getNamedItem("tytul").nodeValue;  
 						var czas		=	markery[i].attributes.getNamedItem("czas").nodeValue;  
 						var position 	=   new google.maps.LatLng(lat, lon);           
 					    bounds.extend(position); 
-						var marker		=	dodajMarker(position,nazwa,opis,tytul,czas);   		  
+						var marker		=	dodajMarker(position,nazwa,opis,tytul,czas,ikona);   		  
 					}
 				},'xml','get');
 			}
 				
-			function dodajMarker(position,nazwa,opis,tytul,czas)
+			function dodajMarker(position,nazwa,opis,tytul,czas,ikona)
 			{   
 				var marker	=	new google.maps.Marker(
 					{
 						position: position,
 						title: nazwa, 
 						map: mapa,      
-						animation: google.maps.Animation.DROP,
+						animation: google.maps.Animation.DROP, 
+						icon: ikona,  
+						shadow: cien,
 					}
 				);                 
                                      
@@ -63,7 +80,7 @@
 				   		
 				marker.txt	=	'<strong>'+nazwa+'</strong><br/>'+tytul+'<br/>'+opis+'<br/>'+czas+'';
 				
-				google.maps.event.addListener(marker,"click",function()
+				google.maps.event.addListener(marker,"mouseover",function()
 				{
 					dymek.setPosition(marker.getPosition());
 					dymek.setContent(marker.txt);
