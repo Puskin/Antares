@@ -5,7 +5,8 @@
 			var mapa; // obiekt globalny			
 			var dymek = new google.maps.InfoWindow();
 			var marker = new google.maps.Marker({
-				// draggable:true,
+				draggable:true,
+				animation: google.maps.Animation.DROP, 
 			});
 			var geokoder = new google.maps.Geocoder();   
 			var contentString = "a";
@@ -35,6 +36,11 @@
 						document.getElementById('location_latitude').value = zdarzenie.latLng.lat();
 						document.getElementById('location_longitude').value = zdarzenie.latLng.lng();
 					}
+				});   
+				
+				google.maps.event.addListener(marker, "dragend", function(marker) {
+				    document.getElementById('location_latitude').value = marker.latLng.lat();
+					document.getElementById('location_longitude').value = marker.latLng.lng();
 				});
 			}         
 			
@@ -49,7 +55,12 @@
 					if(status == google.maps.GeocoderStatus.OK)
 					{
 						mapa.setZoom(19);
-						mapa.setCenter(wyniki[0].geometry.location);   
+						mapa.setCenter(wyniki[0].geometry.location);    
+						marker.setPosition(wyniki[0].geometry.location);     
+						marker.setMap(mapa);                              
+						
+						document.getElementById('location_latitude').value = wyniki[0].geometry.location.lat();
+						document.getElementById('location_longitude').value = wyniki[0].geometry.location.lng();
 					}
 					else
 					{
