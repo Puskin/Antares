@@ -33,14 +33,14 @@
 						marker.setPosition(zdarzenie.latLng);
 						marker.setMap(mapa);	
 						// infowindow.open(mapa,marker);																			
-						document.getElementById('location_latitude').value = zdarzenie.latLng.lat();
-						document.getElementById('location_longitude').value = zdarzenie.latLng.lng();
+						document.getElementById('new_location_latitude').value = zdarzenie.latLng.lat();
+						document.getElementById('new_location_longitude').value = zdarzenie.latLng.lng();
 					}
 				});   
 				
 				google.maps.event.addListener(marker, "dragend", function(marker) {
-				    document.getElementById('location_latitude').value = marker.latLng.lat();
-					document.getElementById('location_longitude').value = marker.latLng.lng();
+				    document.getElementById('new_location_latitude').value = marker.latLng.lat();
+					document.getElementById('new_location_longitude').value = marker.latLng.lng();
 				});
 			}         
 			
@@ -59,8 +59,8 @@
 						marker.setPosition(wyniki[0].geometry.location);     
 						marker.setMap(mapa);                              
 						
-						document.getElementById('location_latitude').value = wyniki[0].geometry.location.lat();
-						document.getElementById('location_longitude').value = wyniki[0].geometry.location.lng();
+						document.getElementById('new_location_latitude').value = wyniki[0].geometry.location.lat();
+						document.getElementById('new_location_longitude').value = wyniki[0].geometry.location.lng();
 					}
 					else
 					{

@@ -9,8 +9,8 @@
 		<%= f.label "Opis (co robisz)" %>
 	</div>
 	<div class="field hidden">
-		<%= f.text_field :latitude, :readonly => true  %>
-		<%= f.text_field :longitude, :readonly => true %>
+		<%= f.text_field :latitude, :readonly => true, :id => :new_location_latitude  %>
+		<%= f.text_field :longitude, :readonly => true, :id => :new_location_longitude %>
 	</div>
 	<div class="actions">
 		<%= f.submit "Dodaj lokacje" %>

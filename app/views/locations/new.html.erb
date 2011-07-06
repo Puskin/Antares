@@ -3,6 +3,32 @@
 <div class="box">
 <h1 class="plain">Dodajesz nową lokalizację</h1>
 </div>
+                           
+<div class="box">
+<h3>Ostatnio odwiedzane, szybkie logowanie</h3>    
+
+<% @locations = Location.for_user(current_user).limit(5) %> 
+<% @locations.each do |location| %>   
+
+	<% form_for current_user.locations.build(
+	:user_id => current_user.id,
+	:title => location.title,
+	:description => location.description,
+	:latitude => location.latitude,
+	:longitude => location.longitude) do |f| %> 
+
+	<%= f.hidden_field :user_id %>
+	<%= f.hidden_field :title %>
+	<%= f.hidden_field :description %>
+	<%= f.hidden_field :latitude %>
+	<%= f.hidden_field :longitude %>					    
+	<%= f.submit "#{location.title}", :class => :button, :confirm => "Na pewno zalogować w #{location.title}?" %>     
+	
+	<% end %>    
+
+<% end %>
+	
+</div>
 
 <div class="box" id="search"> 
 	<h3>Wyszukaj adres dodawanej lokalizacji</h3>
