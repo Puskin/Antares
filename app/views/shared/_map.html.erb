@@ -90,7 +90,12 @@
 				return marker;
 			}     
 			
-			function showClosest() { mapa.setZoom(14); }    			
+			function showClosest() { 
+				var actuall = new google.maps.LatLng(<%= @actuall_location.latitude %>,<%= @actuall_location.longitude %>); 
+				mapa.setCenter(actuall);
+				mapa.setZoom(14);
+			}    			   
+			
 			function showEveryone() { mapa.fitBounds(bounds); }  
 			
       
