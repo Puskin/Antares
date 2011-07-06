@@ -1,0 +1,18 @@
+<%= form_for @location do |f| %>
+	<%= render 'shared/error_messages', :object => f.object %>
+	<div class="field">      
+		<%= f.label "Nazwa miejsca (gdzie jesteś)" %>   
+		<%= f.text_field :title %>                      		
+	</div>
+	<div class="field">   
+		<%= f.label "Opis (co robisz)" %>
+		<%= f.text_area :description %>                 		
+	</div>
+	<div class="field hidden">
+		<%= f.text_field :latitude, :readonly => true  %>
+		<%= f.text_field :longitude, :readonly => true %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Dodaj lokacje" %>
+	</div>
+<% end %>

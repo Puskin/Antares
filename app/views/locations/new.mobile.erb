@@ -1,0 +1,121 @@
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>  
+
+<script type="text/javascript">
+
+var initialLocation;
+var siberia = new google.maps.LatLng(60, 105);
+var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
+var browserSupportFlag =  new Boolean(); 
+var marker = new google.maps.Marker({
+	draggable:true,
+	animation: google.maps.Animation.DROP, 
+});
+var map;
+var infowindow = new google.maps.InfoWindow();
+  
+function initialize() {
+  var myOptions = {
+    zoom: 19,
+    mapTypeId: google.maps.MapTypeId.HYBRID    
+
+	
+  };       
+
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);   
+
+	google.maps.event.addListener(map,'click',function(zdarzenie)
+	{
+		if(zdarzenie.latLng)	
+		{ 
+			marker.setPosition(zdarzenie.latLng);
+			marker.setMap(map);	
+			// infowindow.open(mapa,marker);																			
+			document.getElementById('location_latitude').value = zdarzenie.latLng.lat();
+			document.getElementById('location_longitude').value = zdarzenie.latLng.lng();
+		}
+	});   
+	
+	google.maps.event.addListener(marker, "dragend", function(marker) {
+	    document.getElementById('location_latitude').value = marker.latLng.lat();
+		document.getElementById('location_longitude').value = marker.latLng.lng();
+	});
+  
+  // Try W3C Geolocation method (Preferred)
+  if(navigator.geolocation) {
+    browserSupportFlag = true;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      contentString = "Location found using W3C standard";
+      map.setCenter(initialLocation);
+     // infowindow.setContent(contentString);
+     // infowindow.setPosition(initialLocation);    
+
+      marker.setPosition(initialLocation);
+	  marker.setMap(map);	           
+		
+		document.getElementById('location_latitude').value = initialLocation.lat();
+		document.getElementById('location_longitude').value = initialLocation.lng();
+	
+     // infowindow.open(map);
+    }, function() {
+      handleNoGeolocation(browserSupportFlag);
+    });
+  } else if (google.gears) {
+    // Try Google Gears Geolocation
+    browserSupportFlag = true;
+    var geo = google.gears.factory.create('beta.geolocation');
+    geo.getCurrentPosition(function(position) {
+      initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
+      contentString = "Location found using Google Gears";
+      map.setCenter(initialLocation);
+      infowindow.setContent(contentString);
+      infowindow.setPosition(initialLocation);
+      infowindow.open(map);
+    }, function() {
+      handleNoGeolocation(browserSupportFlag);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    browserSupportFlag = false;
+    handleNoGeolocation(browserSupportFlag);
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag == true) {
+    initialLocation = newyork;
+    contentString = "Error: The Geolocation service failed.";
+  } else {
+    initialLocation = siberia;
+    contentString = "Error: Your browser doesn't support geolocation. Are you in Siberia?";
+  }
+  map.setCenter(initialLocation);
+  infowindow.setContent(contentString);
+  infowindow.setPosition(initialLocation);
+  infowindow.open(map);
+}
+</script>
+    
+           
+	<div id="latest_location">
+		<%= current_user.name %> <%= current_user.surname %>  
+		
+		<div style="float: right">
+			<% @loc = current_user.locations.first %>
+			Ostatnio: <strong><%= @loc.title %></strong>
+ 		</div>
+   </div>
+
+    Aktualnie tutaj:
+	<div id="map_canvas" style="width: 100%; height: 200px;"></div>
+ 	
+     	       <script type="text/javascript">
+		initialize();
+	</script>
+ 
+<div class="box">
+	<h3>Uzupełnij opis nowej lokalizacji</h3>
+<%= render 'fields' %>                      
+
+</div>
+

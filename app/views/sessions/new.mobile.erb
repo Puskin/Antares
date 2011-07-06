@@ -1,0 +1,16 @@
+<h2>Jetu - mobilna beta</h2>
+<h3>Zaloguj się</h3> 
+
+<%= form_for(:session, :url => sessions_path) do |f| %>
+  <div class="field">
+    <%= f.label :email, "Adres e-mail" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "Hasło" %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Zaloguj się" %>
+  </div>
+<% end %>

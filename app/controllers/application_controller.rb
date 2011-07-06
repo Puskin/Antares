@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
+  include SessionsHelper                                    
+  has_mobile_fu
   protect_from_forgery
   
   before_filter :set_timezone      
