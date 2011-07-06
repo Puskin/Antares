@@ -72,7 +72,11 @@
 					
 						<% if current_user.contacts == [] %>
 							<%= link_to "Zaproś znajomych!", users_path, :class => :button, :id => :invite %>   
-						<% end %>
+						<% end %>    
+						
+						<div id="mapSettings" style="float: right">
+							Widok: <a href="#" onclick="showClosest()">Okolice</a> | <a href="#" onclick="showEveryone()">Wszyscy znajomi</a>
+						</div>
 								           
 			</div>                   
 	<% end %>
