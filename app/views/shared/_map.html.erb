@@ -89,7 +89,9 @@
 				   
 				return marker;
 			}     
+			         
 			
+			<% if current_user.contacts.count != 0 %>   
 			function showClosest() { 
 				var actuall = new google.maps.LatLng(<%= @actuall_location.latitude %>,<%= @actuall_location.longitude %>); 
 				mapa.setCenter(actuall);
@@ -97,7 +99,7 @@
 			}    			   
 			
 			function showEveryone() { mapa.fitBounds(bounds); }  
-			
+			<% end %>
       
 			
 		</script>
